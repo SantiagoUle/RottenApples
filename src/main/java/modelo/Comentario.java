@@ -1,14 +1,139 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package modelo;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.Objects;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
- * @author Yago
+ * @author Santiago
  */
-public class Comentario {
+@Entity
+@Table(name="comentarios")
+
+public class Comentario implements Serializable{
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY) 
+    private int idComentario;
+    
+    @Column (name="cuerpo")//no es necesario pero mejor ponerlo
+    private String cuerpoComentario;
+    
+    @Column(name="valoracion")
+    private boolean valComentario;
+    
+    @Column(name="fechaCreacion")
+    private Date fechaComentario;
+    
+    @JoinColumn(name="idUsuario")
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    private Usuario usuarioComentario;
+    
+    @JoinColumn(name="idReview")
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    private Review reviewComentario;
+
+    public int getIdComentario() {
+        return idComentario;
+    }
+
+    public void setIdComentario(int idComentario) {
+        this.idComentario = idComentario;
+    }
+
+    public String getCuerpoComentario() {
+        return cuerpoComentario;
+    }
+
+    public void setCuerpoComentario(String cuerpoComentario) {
+        this.cuerpoComentario = cuerpoComentario;
+    }
+
+    public boolean isValComentario() {
+        return valComentario;
+    }
+
+    public void setValComentario(boolean valComentario) {
+        this.valComentario = valComentario;
+    }
+
+    public Date getFechaComentario() {
+        return fechaComentario;
+    }
+
+    public void setFechaComentario(Date fechaComentario) {
+        this.fechaComentario = fechaComentario;
+    }
+
+    public Usuario getUsuarioComentario() {
+        return usuarioComentario;
+    }
+
+    public void setUsuarioComentario(Usuario usuarioComentario) {
+        this.usuarioComentario = usuarioComentario;
+    }
+
+    public Review getReviewComentario() {
+        return reviewComentario;
+    }
+
+    public void setReviewComentario(Review reviewComentario) {
+        this.reviewComentario = reviewComentario;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.idComentario;
+        hash = 67 * hash + Objects.hashCode(this.cuerpoComentario);
+        hash = 67 * hash + (this.valComentario ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.fechaComentario);
+        hash = 67 * hash + Objects.hashCode(this.usuarioComentario);
+        hash = 67 * hash + Objects.hashCode(this.reviewComentario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Comentario other = (Comentario) obj;
+        if (this.idComentario != other.idComentario) {
+            return false;
+        }
+        if (this.valComentario != other.valComentario) {
+            return false;
+        }
+        if (!Objects.equals(this.cuerpoComentario, other.cuerpoComentario)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechaComentario, other.fechaComentario)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuarioComentario, other.usuarioComentario)) {
+            return false;
+        }
+        if (!Objects.equals(this.reviewComentario, other.reviewComentario)) {
+            return false;
+        }
+        return true;
+    }
     
 }
