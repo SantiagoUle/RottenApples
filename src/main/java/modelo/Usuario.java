@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -28,26 +28,26 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idUsuario;
     
-    @Column (name="Username")
+    @Column (name="username")
     private String username;
     
-    @Column(name="Password")
+    @Column(name="password")
     private String password;
     
-    @Column(name="UltimaConexion")
+    @Column(name="ultimaConexion")
     @Temporal(TemporalType.DATE)
     private Date ultimaConexion;
     
-    @Column(name="FechaCreacion")
+    @Column(name="fechaCreacion")
     @Temporal(TemporalType.DATE)
     private Date fechaCreacion;
     
-    @JoinColumn(name="IdComunidad")
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="idComunidad")
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Comunidad idComunidad;
     
-    @JoinColumn(name="IdRol")
-    @OneToOne
+    @JoinColumn(name="idRol")
+    @ManyToOne(cascade=CascadeType.PERSIST)
     private Rol idRol;
 
     public int getIdUsuario() {
@@ -108,14 +108,14 @@ public class Usuario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + this.idUsuario;
-        hash = 67 * hash + Objects.hashCode(this.username);
-        hash = 67 * hash + Objects.hashCode(this.password);
-        hash = 67 * hash + Objects.hashCode(this.ultimaConexion);
-        hash = 67 * hash + Objects.hashCode(this.fechaCreacion);
-        hash = 67 * hash + Objects.hashCode(this.idComunidad);
-        hash = 67 * hash + Objects.hashCode(this.idRol);
+        int hash = 7;
+        hash = 37 * hash + this.idUsuario;
+        hash = 37 * hash + Objects.hashCode(this.username);
+        hash = 37 * hash + Objects.hashCode(this.password);
+        hash = 37 * hash + Objects.hashCode(this.ultimaConexion);
+        hash = 37 * hash + Objects.hashCode(this.fechaCreacion);
+        hash = 37 * hash + Objects.hashCode(this.idComunidad);
+        hash = 37 * hash + Objects.hashCode(this.idRol);
         return hash;
     }
 
@@ -155,8 +155,5 @@ public class Usuario implements Serializable {
         return true;
     }
 
-    
-    
-    
     
 }
