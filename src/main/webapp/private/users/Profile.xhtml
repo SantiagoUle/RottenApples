@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+
+        <title>Facelets Template</title>
+    </h:head>
+    
+    
+    <h:body>
+
+        <div id="top">
+            <ui:insert name="top"></ui:insert>
+            <div class="header"> </div>  
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content"></ui:insert>
+            <ui:insert name="content">
+                <h1>Profile Page</h1>
+                <h:panelGrid columns="2">
+                        <h:graphicImage value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png" width="150px" height="150px" class="profile-picture"/>
+                    <h:panelGrid>
+                        <h:outputText value="Nickname: Nomad" />
+
+                        <h:outputText value="Date of Creation: 15-05-2000" />
+
+                        <h:outputText value="Last Online: 01-06-2023" />
+                    </h:panelGrid>
+                </h:panelGrid>
+            </ui:insert>
+
+        </div>
+
+
+
+        
+        <div id="bottom">
+            <ui:insert name="bottom"></ui:insert>
+        </div>
+
+    </h:body>
+
+</html>
