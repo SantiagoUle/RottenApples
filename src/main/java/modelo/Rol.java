@@ -21,7 +21,7 @@ public class Rol implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int IdRol;
     
-    @Column (name="TipoUsuario")
+    @Column (name="tipoUsuario")
     private char tipoUsuario;
     
     @Column(name="descripcion")

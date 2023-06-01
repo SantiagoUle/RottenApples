@@ -26,7 +26,7 @@ public class Item implements Serializable{
     @Column (name="nombre")//no es necesario pero mejor ponerlo
     private String nombreItem;
     
-    @Column(name="description")
+    @Column(name="descripcion")
     private String descriptionItem;
 
     public int getIdItem() {
