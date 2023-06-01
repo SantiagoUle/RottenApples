@@ -1,0 +1,34 @@
+.header {
+    background-color: #333;
+    padding: 20px;
+    text-align: left;
+    font-size: 72px;
+    display: flex;
+    color: #990000;
+}
+.header .title {
+    font-family: Impact, sans-serif;
+}
+.header img {
+    width: 100px;
+    height: 100px;
+    margin-right: 35px;
+}
+
+.content {
+    margin: 20px;
+    font-size: 16px;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+a {
+    color: #ff0000;
+}
+
+a:hover {
+    color: #990000;
+}
