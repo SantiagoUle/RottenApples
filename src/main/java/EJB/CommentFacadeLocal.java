@@ -16,11 +16,11 @@ import model.Comment;
 @Local
 public interface CommentFacadeLocal {
 
-    void create(Comment comentario);
+    void create(Comment comment);
 
-    void edit(Comment comentario);
+    void edit(Comment comment);
 
-    void remove(Comment comentario);
+    void remove(Comment comment);
 
     Comment find(Object id);
 

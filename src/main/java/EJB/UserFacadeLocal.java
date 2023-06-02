@@ -16,11 +16,11 @@ import model.User;
 @Local
 public interface UserFacadeLocal {
 
-    void create(User usuario);
+    void create(User user);
 
-    void edit(User usuario);
+    void edit(User user);
 
-    void remove(User usuario);
+    void remove(User user);
 
     User find(Object id);
 

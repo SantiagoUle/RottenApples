@@ -16,11 +16,11 @@ import model.Community;
 @Local
 public interface CommunityFacadeLocal {
 
-    void create(Community comunidad);
+    void create(Community community);
 
-    void edit(Community comunidad);
+    void edit(Community community);
 
-    void remove(Community comunidad);
+    void remove(Community community);
 
     Community find(Object id);
 
