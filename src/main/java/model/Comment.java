@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="comentarios")
 
-public class Comentario implements Serializable{
+public class Comment implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -37,7 +37,7 @@ public class Comentario implements Serializable{
     
     @JoinColumn(name="idUsuario")
     @ManyToOne(cascade=CascadeType.PERSIST)
-    private Usuario usuarioComentario;
+    private User usuarioComentario;
     
     @JoinColumn(name="idReview")
     @ManyToOne(cascade=CascadeType.PERSIST)
@@ -75,11 +75,11 @@ public class Comentario implements Serializable{
         this.fechaComentario = fechaComentario;
     }
 
-    public Usuario getUsuarioComentario() {
+    public User getUsuarioComentario() {
         return usuarioComentario;
     }
 
-    public void setUsuarioComentario(Usuario usuarioComentario) {
+    public void setUsuarioComentario(User usuarioComentario) {
         this.usuarioComentario = usuarioComentario;
     }
 
@@ -114,7 +114,7 @@ public class Comentario implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Comentario other = (Comentario) obj;
+        final Comment other = (Comment) obj;
         if (this.idComentario != other.idComentario) {
             return false;
         }

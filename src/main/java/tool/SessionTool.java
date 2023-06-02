@@ -1,7 +1,7 @@
 package tool;
 
+import EJB.RolFacadeLocal;
 import java.io.Serializable;
-import model.Usuario;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -15,5 +15,6 @@ import javax.faces.bean.ManagedBean;
 @SessionScoped
 public class SessionTool implements Serializable{
     public final static String USER_KEY = "usuario";
-
+    @EJB
+    private RolFacadeLocal userRolEJB;
 }

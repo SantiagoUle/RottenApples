@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="comunidades")
 
-public class Comunidad implements Serializable{
+public class Community implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -73,7 +73,7 @@ public class Comunidad implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Comunidad other = (Comunidad) obj;
+        final Community other = (Community) obj;
         if (this.idComunidad != other.idComunidad) {
             return false;
         }
