@@ -12,9 +12,6 @@
         <p> 
             <h:link value="login" outcome="/public/login"/>
         </p>
-        <p>
-            <h:link value="Ir a pagina error" outcome="/public/newTemplateClient1"/>
-        </p>
         
         <div class="card">
            
@@ -23,7 +20,7 @@
                 <p:growl id="growl" sticky="true" showDetail="true"/>
 
                 <p:tab id="personal" title="Personal">
-                    <p:panel header="Datos personales">
+                    <p:panel header="User data">
                         <p:messages id="msgPrincipal" severity="info, fatal" showDetail="true" showSummary="true"/>
 
                         <h:panelGrid columns="2" columnClasses="label, value">
@@ -52,9 +49,9 @@
                         <h:commandButton value="Registro" action="#{altaUserController.insertarUser()}" style="margin-right:20px;"/>
 
                     </p:panel>
-                    <p:panel header="¿Ya tienes cuenta?">
+                    <p:panel header="¿Do you have an account already?">
 
-                        <p:outputLabel>Puedes iniciar sesión con tu cuenta y acceder a la plataforma. Solo tienes que ir al apartado 'Iniciar sesión'.</p:outputLabel>
+                        <p:outputLabel>You can login </p:outputLabel><h:link value="here" outcome="/public/login"/>
                     </p:panel>
 
                 </p:tab>
