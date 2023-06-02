@@ -1,18 +1,63 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Signup</title>
     </h:head>
     <h:body>
         Hello from Pinceles
         <p> 
             <h:link value="login" outcome="/public/login"/>
         </p>
-        <p>
-            <h:link value="Ir a pagina error" outcome="/public/newTemplateClient1"/>
-        </p>
+        
+        <div class="card">
+           
+            <h:form>
+
+                <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                <p:tab id="personal" title="Personal">
+                    <p:panel header="User data">
+                        <p:messages id="msgPrincipal" severity="info, fatal" showDetail="true" showSummary="true"/>
+
+                        <h:panelGrid columns="2" columnClasses="label, value">
+
+                            <h:outputText value="Username: "/>
+                            <p:inputText id="name" value="#{altaUserController.user.username}" required="true" label="username"
+                                         autocomplete="false" requiredMessage="Necesitamos saber tu username"/>
+
+                            <h:outputText value="Contraseña: "/>
+                            <p:password id="pass" match="pass2" required="true" label="Contraseña"
+                                        value="#{altaUserController.user.password}" requiredMessage="Introduce tu contraseña"
+                                        autocomplete="false" feedback="true"/>
+
+                            <h:outputText value="Repita contraseña: "/>
+                            <p:password id="pass2" value="#{altaUserController.user.password}"
+                                        requiredMessage="Vuelve a introducir tu contraseña" required="true"
+                                        label="Contraseña repetida"
+                                        autocomplete="false" feedback="true"/>
+                            <h:outputText value="Rol "/>
+                            <p:inputText id="rol" value="#{altaUserController.user.idRol}" required="true" label="rol"
+                                         autocomplete="false" requiredMessage="Necesitamos saber tu rol"/>
+
+                            
+
+                        </h:panelGrid>
+                        <h:commandButton value="Registro" action="#{altaUserController.insertarUser()}" style="margin-right:20px;"/>
+
+                    </p:panel>
+                    <p:panel header="¿Do you have an account already?">
+
+                        <p:outputLabel>You can login </p:outputLabel><h:link value="here" outcome="/public/login"/>
+                    </p:panel>
+
+                </p:tab>
+
+            </h:form>
+        </div>
     </h:body>
 </html>
 

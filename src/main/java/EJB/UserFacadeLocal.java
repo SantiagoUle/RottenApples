@@ -11,7 +11,7 @@ import model.User;
 
 /**
  *
- * @author Nomad
+ * @author Yago
  */
 @Local
 public interface UserFacadeLocal {

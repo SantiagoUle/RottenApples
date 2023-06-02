@@ -11,7 +11,7 @@ import model.Community;
 
 /**
  *
- * @author Nomad
+ * @author Yago
  */
 @Local
 public interface CommunityFacadeLocal {
