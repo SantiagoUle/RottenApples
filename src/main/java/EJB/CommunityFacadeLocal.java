@@ -7,26 +7,26 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import modelo.Comunidad;
+import model.Community;
 
 /**
  *
  * @author Yago
  */
 @Local
-public interface ComunidadFacadeLocal {
+public interface CommunityFacadeLocal {
 
-    void create(Comunidad comunidad);
+    void create(Community comunidad);
 
-    void edit(Comunidad comunidad);
+    void edit(Community comunidad);
 
-    void remove(Comunidad comunidad);
+    void remove(Community comunidad);
 
-    Comunidad find(Object id);
+    Community find(Object id);
 
-    List<Comunidad> findAll();
+    List<Community> findAll();
 
-    List<Comunidad> findRange(int[] range);
+    List<Community> findRange(int[] range);
 
     int count();
     

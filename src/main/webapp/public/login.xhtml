@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Login window</title>
+        <title>Login</title>
     </h:head>
     <h:body>
         
@@ -35,10 +35,10 @@
                 <p:inputText value="#{altaRolController.rol.tipoUsuarioRoles}" />
                 
                 <p:outputLabel value="Nombre de usuario: " />
-                <p:inputText value="#{altaUsuarioController.user.userUsuario}" />
+                <p:inputText value="#{altaUserController.user.userUsuario}" />
                 
                 <p:outputLabel value="Password: " />
-                <p:password id="password1" value="#{altaUsuarioController.user.password}" match="password2"/>
+                <p:password id="password1" value="#{altaUserController.user.password}" match="password2"/>
                 
                 <p:outputLabel value="Repita la contraseña: " />
                 <p:password id="password2"  />
@@ -98,9 +98,9 @@
             <h5>Remaining Chars</h5>
             <p:inputTextarea rows="5" cols="30" counter="display" maxlength="10"
                          counterTemplate="{0} characters remaining." autoResize="false"
-                         value="#{altaComentarioController.com.cuerpoComentario}"/>
+                         value="#{altaCommentController.com.cuerpoComentario}"/>
             <h:outputText id="display" class="block" />
-            <p:commandButton value="Insertar" actionListener="#{altaComentarioController.insertarComentario()}" />
+            <p:commandButton value="Insertar" actionListener="#{altaCommentController.insertarComentario()}" />
         </h:form>
         
         <p:panel header="Inicia sesión en la plataforma">
@@ -109,7 +109,7 @@
 
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel for="username" value="Username:"/>
-                <p:inputText id="username" value="#" required="true" autocomplete="false" label="Nombre de usuario:"/>
+                <p:inputText id="username" value="#{altaUserController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
 
                 <h:outputLabel for="password" value="Password:"/>
                 <p:password id="password" autocomplete="false" value="#" required="true" label="Contraseña"/>

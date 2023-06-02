@@ -3,7 +3,7 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Item;
+import model.Item;
 
 /**
  *

@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="usuarios")
-public class Usuario implements Serializable {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idUsuario;
@@ -44,7 +44,7 @@ public class Usuario implements Serializable {
     
     @JoinColumn(name="idComunidad")
     @ManyToOne(cascade=CascadeType.PERSIST)
-    private Comunidad idComunidad;
+    private Community idComunidad;
     
     @JoinColumn(name="idRol")
     @ManyToOne(cascade=CascadeType.PERSIST)
@@ -90,11 +90,11 @@ public class Usuario implements Serializable {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Comunidad getIdComunidad() {
+    public Community getIdComunidad() {
         return idComunidad;
     }
 
-    public void setIdComunidad(Comunidad idComunidad) {
+    public void setIdComunidad(Community idComunidad) {
         this.idComunidad = idComunidad;
     }
 
@@ -130,7 +130,7 @@ public class Usuario implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Usuario other = (Usuario) obj;
+        final User other = (User) obj;
         if (this.idUsuario != other.idUsuario) {
             return false;
         }

@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 import java.io.Serializable;
 import java.sql.Date;
@@ -41,7 +41,7 @@ public class Review implements Serializable{
 
     @JoinColumn(name = "idUsuario")
     @ManyToOne(cascade=CascadeType.PERSIST)
-    private Usuario usuarioReview;
+    private User usuarioReview;
 
     @JoinColumn(name = "idItem")
     @ManyToOne(cascade=CascadeType.PERSIST)
@@ -87,11 +87,11 @@ public class Review implements Serializable{
         this.fechaReview = fechaReview;
     }
 
-    public Usuario getUsuarioReview() {
+    public User getUsuarioReview() {
         return usuarioReview;
     }
 
-    public void setUsuarioReview(Usuario usuarioReview) {
+    public void setUsuarioReview(User usuarioReview) {
         this.usuarioReview = usuarioReview;
     }
 

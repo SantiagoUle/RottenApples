@@ -1,13 +1,13 @@
-package controlador;
+package controller;
 
-import EJB.ComentarioFacadeLocal;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.Comentario;
+import model.Comment;
+import EJB.CommentFacadeLocal;
 
 /**
  *
@@ -15,16 +15,16 @@ import modelo.Comentario;
  */
 @Named
 @ViewScoped
-public class AltaComentarioController implements Serializable{
+public class AltaCommentController implements Serializable{
     
-    private Comentario com;
+    private Comment com;
 
     @EJB
-    private ComentarioFacadeLocal comEJB;
+    private CommentFacadeLocal comEJB;
     
     @PostConstruct//es lo primero que se ejecuta de todo
     public void init(){
-        com = new Comentario();
+        com = new Comment();
     }
     
     public void insertarComentario(){
@@ -35,19 +35,19 @@ public class AltaComentarioController implements Serializable{
         }
     }
 
-    public Comentario getCom() {
+    public Comment getCom() {
         return com;
     }
 
-    public void setCom(Comentario com) {
+    public void setCom(Comment com) {
         this.com = com;
     }
 
-    public ComentarioFacadeLocal getComEJB() {
+    public CommentFacadeLocal getComEJB() {
         return comEJB;
     }
 
-    public void setComEJB(ComentarioFacadeLocal comEJB) {
+    public void setComEJB(CommentFacadeLocal comEJB) {
         this.comEJB = comEJB;
     }
 
@@ -70,7 +70,7 @@ public class AltaComentarioController implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AltaComentarioController other = (AltaComentarioController) obj;
+        final AltaCommentController other = (AltaCommentController) obj;
         if (!Objects.equals(this.com, other.com)) {
             return false;
         }

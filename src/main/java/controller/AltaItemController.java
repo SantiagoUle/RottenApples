@@ -1,4 +1,4 @@
-package controlador;
+package controller;
 
 import EJB.ItemFacadeLocal;
 import java.io.Serializable;
@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import modelo.Item;
+import model.Item;
 
 /**
  *

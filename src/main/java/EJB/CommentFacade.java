@@ -3,14 +3,14 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Comunidad;
+import model.Comment;
 
 /**
  *
  * @author Santiago
  */
 @Stateless
-public class ComunidadFacade extends AbstractFacade<Comunidad> implements ComunidadFacadeLocal {
+public class CommentFacade extends AbstractFacade<Comment> implements CommentFacadeLocal {
 
     @PersistenceContext(unitName = "RottenPU")
     private EntityManager em;
@@ -20,8 +20,8 @@ public class ComunidadFacade extends AbstractFacade<Comunidad> implements Comuni
         return em;
     }
 
-    public ComunidadFacade() {
-        super(Comunidad.class);
+    public CommentFacade() {
+        super(Comment.class);
     }
 
 }
