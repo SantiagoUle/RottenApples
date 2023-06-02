@@ -20,11 +20,13 @@ public class UserController implements Serializable {
     private UserFacadeLocal userEJB;
     
     private User user;
-
+    
+    
     public User getUser() {
-        return userEJB.find(1);
+        user = userEJB.find(1);
+        return user;
     }
-
+    
     public void setUser(User user) {
         this.user = user;
     }

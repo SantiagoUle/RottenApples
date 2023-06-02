@@ -26,7 +26,7 @@ public class Community implements Serializable{
     @Column (name="nombre")
     private String nombreComunidad;
     
-    @Column(name="description")
+    @Column(name="descripcion")
     private String estadoComunidad;
 
     public int getIdComunidad() {
