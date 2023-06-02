@@ -7,26 +7,26 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import modelo.Usuario;
+import model.Comment;
 
 /**
  *
- * @author Yago
+ * @author Nomad
  */
 @Local
-public interface UsuarioFacadeLocal {
+public interface CommentFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Comment comment);
 
-    void edit(Usuario usuario);
+    void edit(Comment comment);
 
-    void remove(Usuario usuario);
+    void remove(Comment comment);
 
-    Usuario find(Object id);
+    Comment find(Object id);
 
-    List<Usuario> findAll();
+    List<Comment> findAll();
 
-    List<Usuario> findRange(int[] range);
+    List<Comment> findRange(int[] range);
 
     int count();
     

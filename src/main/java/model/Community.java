@@ -1,4 +1,4 @@
-package modelo;
+package model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="comunidades")
 
-public class Comunidad implements Serializable{
+public class Community implements Serializable{
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -26,8 +26,8 @@ public class Comunidad implements Serializable{
     @Column (name="nombre")
     private String nombreComunidad;
     
-    @Column(name="description")
-    private String descriptionComunidad;
+    @Column(name="descripcion")
+    private String estadoComunidad;
 
     public int getIdComunidad() {
         return idComunidad;
@@ -45,12 +45,12 @@ public class Comunidad implements Serializable{
         this.nombreComunidad = nombreComunidad;
     }
 
-    public String getDescriptionComunidad() {
-        return descriptionComunidad;
+    public String getEstadoComunidad() {
+        return estadoComunidad;
     }
 
-    public void setDescriptionComunidad(String descriptionComunidad) {
-        this.descriptionComunidad = descriptionComunidad;
+    public void setEstadoComunidad(String estadoComunidad) {
+        this.estadoComunidad = estadoComunidad;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Comunidad implements Serializable{
         int hash = 7;
         hash = 17 * hash + this.idComunidad;
         hash = 17 * hash + Objects.hashCode(this.nombreComunidad);
-        hash = 17 * hash + Objects.hashCode(this.descriptionComunidad);
+        hash = 17 * hash + Objects.hashCode(this.estadoComunidad);
         return hash;
     }
 
@@ -73,14 +73,14 @@ public class Comunidad implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Comunidad other = (Comunidad) obj;
+        final Community other = (Community) obj;
         if (this.idComunidad != other.idComunidad) {
             return false;
         }
         if (!Objects.equals(this.nombreComunidad, other.nombreComunidad)) {
             return false;
         }
-        if (!Objects.equals(this.descriptionComunidad, other.descriptionComunidad)) {
+        if (!Objects.equals(this.estadoComunidad, other.estadoComunidad)) {
             return false;
         }
         return true;

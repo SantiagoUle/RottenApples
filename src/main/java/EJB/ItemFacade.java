@@ -3,11 +3,11 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Item;
+import model.Item;
 
 /**
  *
- * @author Santiago
+ * @author Cesar
  */
 @Stateless
 public class ItemFacade extends AbstractFacade<Item> implements ItemFacadeLocal {

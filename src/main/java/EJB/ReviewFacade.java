@@ -3,11 +3,11 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Review;
+import model.Review;
 
 /**
  *
- * @author Santiago
+ * @author Cesar
  */
 @Stateless
 public class ReviewFacade extends AbstractFacade<Review> implements ReviewFacadeLocal {

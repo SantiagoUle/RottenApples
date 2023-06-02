@@ -3,11 +3,11 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Menu;
+import model.Menu;
 
 /**
  *
- * @author Santiago
+ * @author Cesar
  */
 @Stateless
 public class MenuFacade extends AbstractFacade<Menu> implements MenuFacadeLocal {

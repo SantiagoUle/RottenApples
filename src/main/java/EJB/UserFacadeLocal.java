@@ -7,26 +7,26 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import model.Rol;
+import model.User;
 
 /**
  *
  * @author Nomad
  */
 @Local
-public interface RolFacadeLocal {
+public interface UserFacadeLocal {
 
-    void create(Rol rol);
+    void create(User user);
 
-    void edit(Rol rol);
+    void edit(User user);
 
-    void remove(Rol rol);
+    void remove(User user);
 
-    Rol find(Object id);
+    User find(Object id);
 
-    List<Rol> findAll();
+    List<User> findAll();
 
-    List<Rol> findRange(int[] range);
+    List<User> findRange(int[] range);
 
     int count();
     

@@ -7,11 +7,11 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import modelo.Item;
+import model.Item;
 
 /**
  *
- * @author Yago
+ * @author Nomad
  */
 @Local
 public interface ItemFacadeLocal {

@@ -3,14 +3,14 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import modelo.Usuario;
+import model.Comment;
 
 /**
  *
- * @author Santiago
+ * @author Cesar
  */
 @Stateless
-public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFacadeLocal {
+public class CommentFacade extends AbstractFacade<Comment> implements CommentFacadeLocal {
 
     @PersistenceContext(unitName = "RottenPU")
     private EntityManager em;
@@ -20,8 +20,8 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         return em;
     }
 
-    public UsuarioFacade() {
-        super(Usuario.class);
+    public CommentFacade() {
+        super(Comment.class);
     }
 
 }

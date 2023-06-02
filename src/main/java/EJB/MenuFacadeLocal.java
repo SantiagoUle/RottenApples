@@ -7,11 +7,11 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import modelo.Menu;
+import model.Menu;
 
 /**
  *
- * @author Yago
+ * @author Nomad
  */
 @Local
 public interface MenuFacadeLocal {
