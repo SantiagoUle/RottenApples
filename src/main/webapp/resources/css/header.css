@@ -2,6 +2,7 @@
     background-color: #333;
     padding: 20px;
     text-align: left;
+    justify-content: space-between;
     font-size: 72px;
     display: flex;
     color: #990000;
@@ -21,4 +22,35 @@
 
 .header a:hover {
     color: #990000;
+}
+
+.custom-menubar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.custom-menubar .ui-menuitem-text {
+    font-family: Impact, sans-serif;
+    color: lightcyan;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.custom-menubar .ui-menuitem-text:hover {
+    background-color: #990000;
+    color: lightcyan;
+
+}
+
+body .ui-menu.ui-menubar {
+    padding: 0.5rem;
+    background: #006400;
+    border-radius: 4px;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text {
+        color: lightcyan;
+}
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-active>.ui-menuitem-link .ui-menuitem-text {
+        color: lightcyan;
 }
