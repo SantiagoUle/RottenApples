@@ -17,21 +17,25 @@
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Play&amp;display=swap" rel="stylesheet"/>
         
     </h:head>
-
     <h:body>
 
         <div id="top">
             <ui:insert name="top"></ui:insert>
             <div class="header">
-                <img src="\RottenApples\resources\img\logo.png" alt="?" url="faces\private\users\profileClient.xhtml"/>
+                <!--><img src="resources\img\logo.png" alt="?" url="public\index.xhtml"/> <-->
+
+                <p:link id="link" href="\RottenApples">
+                    <p:graphicImage value="\RottenApples\resources\img\logo.png" title="Main Page"/> 
+                </p:link>
+                
                 <div class="title">ROTTEN APPLES</div>
 
                 <p:menubar styleClass="custom-menubar">
-                    <p:menuitem value="New" url="https://youtu.be/eBGIQ7ZuuiU"/>
-                    <p:menuitem value="Hot" url="https://youtu.be/eBGIQ7ZuuiU"/>
-                    <p:menuitem value="Community" url="https://youtu.be/eBGIQ7ZuuiU"/>
+                    <p:menuitem value="New +" url="\RottenApples\faces\private\users\newPost.xhtml"/>
+                    <p:menuitem value="Hot" url="\RottenApples\faces\public\hot.xhtml"/>
+                    <p:menuitem value="Communities" url="\RottenApples\faces\public\communities.xhtml"/>
                     
-                    <p:menuitem value="Profile" url="faces\private\users\profileClient.xhtml">
+                    <p:menuitem value="Profile" url="\RottenApples\faces\private\users\profileClient.xhtml">
                         <h:graphicImage class="pfp" value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png"/>
                     </p:menuitem>
 
