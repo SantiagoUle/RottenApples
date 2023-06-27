@@ -9,112 +9,20 @@
     </h:head>
     <h:body>
         
-        <!--
-        <div class="card">
-            <p:panelGrid columns="2" layout="grid" styleClass="showcase-text-align-center">
-                <p:outputLabel value="Nombre: " />
-                <p:inputText value="#{altaPersonaController.per.nombrePersona}" />
 
-                <p:outputLabel value="Primer apellido: " />
-                <p:inputText value="#{altaPersonaController.per.apellido1Persona}" />
-
-                <p:outputLabel value="Segundo apellido: " />
-                <p:inputText value="#{altaPersonaController.per.apellido2Persona}" />
-
-                <p:outputLabel value="Sexo: " />
-                <p:selectOneButton value="#{altaPersonaController.per.sexoPersona}">
-                    <f:selectItem itemLabel="Option1" itemValue="Option1"/>
-                    <f:selectItem itemLabel="Option2" itemValue="Option2"/>
-                    <f:selectItem itemLabel="Option3" itemValue="Option3"/>
-                </p:selectOneButton>
-                
-                <p:outputLabel value="Fecha de nacimiento: " /> 
-                <p:calendar id="button" value="#{altaPersonaController.per.fechaNacimientoPersona}" showOn="button"/>
-                
-                <p:outputLabel value="Rol: " />
-                <p:inputText value="#{altaRolController.rol.tipoUsuarioRoles}" />
-                
-                <p:outputLabel value="Nombre de usuario: " />
-                <p:inputText value="#{altaUserController.user.userUsuario}" />
-                
-                <p:outputLabel value="Password: " />
-                <p:password id="password1" value="#{altaUserController.user.password}" match="password2"/>
-                
-                <p:outputLabel value="Repita la contraseña: " />
-                <p:password id="password2"  />
-                
-                <p:commandButton value="Registrar" actionListener="{}" />
-            </p:panelGrid>
-        </div>
-        
-        -->
-        
-        <!--
-        <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
-         <a class="nav-brand" href="index.xhtml">todo</a> 
-         <div class="row m-n">
-            <div class="col-md-4 col-md-offset-4 m-t-lg">
-               <section class="panel">
-                  <header class="panel-heading text-center"> Sign in </header>
-                  <form action="index.xhtml" class="panel-body">
-                     <div class="form-group"> 
-                         <label class="control-label">Email</label> 
-                         <input type="email" placeholder="test@example.com" class="form-control"/> 
-                     </div>
-                     <div class="form-group"> 
-                         <label class="control-label">Password</label> 
-                         <input type="password" id="inputPassword" placeholder="Password" class="form-control"/> 
-                     </div>
-                     <div class="checkbox"> 
-                         <label> 
-                             <input type="checkbox"/> Keep me logged in 
-                         </label> 
-                     </div>
-                     <a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a> <button type="submit" class="btn btn-info">Sign in</button> 
-                     
-                     <div class="line line-dashed"></div>
-                     <a href="#" class="btn btn-facebook btn-block m-b-sm"><i class="fa fa-facebook pull-left"></i>Sign in with Facebook</a> 
-                     <a href="#" class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with Twitter</a> 
-                     
-                     <div class="line line-dashed"></div>
-                     <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                     <a href="signup.xhtml" class="btn btn-white btn-block">Create an account</a> 
-                  </form>
-               </section>
-            </div>
-         </div>
-      </section>
-        -->
-        
-        <h:form>
-            <p:outputLabel value="Inserte Item " />
-            <p:inputText value="#{altaItemController.item.nombreItem}" />
-            <p:inputText value="#{altaItemController.item.descriptionItem}" />
-            <p:commandButton value="Insertar" actionListener="#{altaItemController.insertarItem()}" />
-        </h:form>
-        
-        <h:form>
-            <p:outputLabel value="Inserte comentario " />
-            <h5>Remaining Chars</h5>
-            <p:inputTextarea rows="5" cols="30" counter="display" maxlength="10"
-                         counterTemplate="{0} characters remaining." autoResize="false"
-                         value="#{altaCommentController.com.cuerpoComentario}"/>
-            <h:outputText id="display" class="block" />
-            <p:commandButton value="Insertar" actionListener="#{altaCommentController.insertarComentario()}" />
-        </h:form>
         
         <p:panel header="Inicia sesión en la plataforma">
 
-            <p:growl id="growl" sticky="true" showDetail="true" life="3000"/>
+            <p:growl id="growl" sticky="true" showDetail="true" life="2000"/>
 
             <h:panelGrid columns="2" cellpadding="5">
-                <h:outputLabel for="username" value="Username:"/>
-                <p:inputText id="username" value="#{altaUserController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
+                <p:outputLabel for="username" value="Username:"/>
+                <p:inputText id="username" value="#{signupController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
 
-                <h:outputLabel for="password" value="Password:"/>
-                <p:password id="password" autocomplete="false" value="#" required="true" label="Contraseña"/>
+                <p:outputLabel for="password" value="Password:"/>
+                <p:password id="password" autocomplete="false" value="#{signupController.user.password}" required="true" label="Contraseña"/>
 
-                <h:commandButton value="Login" actionListener="#" style="margin-right:20px"/>
+                <p:commandButton value="Login" actionListener="#" style="margin-right:20px"/>
             </h:panelGrid>
         </p:panel>
     </h:body>

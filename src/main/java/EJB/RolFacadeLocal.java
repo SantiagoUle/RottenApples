@@ -30,4 +30,7 @@ public interface RolFacadeLocal {
 
     int count();
     
+    List<Rol> findByName (String rol);
+    
+    
 }
