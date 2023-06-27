@@ -32,4 +32,5 @@ public interface RolFacadeLocal {
     
     List<Rol> findByName (String rol);
     
+    
 }

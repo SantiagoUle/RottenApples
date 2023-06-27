@@ -10,6 +10,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.User;
 import EJB.UserFacadeLocal;
+import model.Rol;
 
 /**
  *
@@ -35,8 +36,13 @@ public class SignupController implements Serializable{
     }
     
     public void insertarUser(){
+        
         try{
             user.setFechaCreacion(new Date());
+            
+            Rol rol = rolEJB.findByName("User").get(0);
+            user.setIdRol(rol);//get rol
+            
             userEJB.create(user);
         }catch(Exception e){
             System.out.println("ERROR al insertar user/n" +e.getMessage());

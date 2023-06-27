@@ -39,7 +39,7 @@ public class RolFacade extends AbstractFacade<Rol> implements RolFacadeLocal {
            
             rolList = query.getResultList();
             if (!rolList.isEmpty()) {
-                System.out.println("encontre algo en finduserid");
+                System.out.println("ENCONTRADO");
 
             }
         } catch (Exception e) {
@@ -48,4 +48,6 @@ public class RolFacade extends AbstractFacade<Rol> implements RolFacadeLocal {
         }        
         return rolList;
     }
+    
+    
 }
