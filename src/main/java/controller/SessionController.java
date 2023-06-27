@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import model.User;
 
 /**
@@ -28,6 +29,8 @@ public class SessionController {
     }
     
     public void buttonNewPost() {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn) {
             try {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\newPost.xhtml");
@@ -36,7 +39,7 @@ public class SessionController {
             }
         } else {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("C:\\RottenApples\\faces\\public\\login.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml");
             } catch (IOException e) {
                 // Handle the exception
             }
@@ -44,19 +47,26 @@ public class SessionController {
     }
     
         public void buttonProfile() {
-        if (loggedIn) {
+        //HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+        
+        //FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", true);
+        
+        //Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
+        loggedIn = false;
+        
+        //if (loggedIn) {
             try {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\profileClient.xhtml");
             } catch (IOException e) {
                 // Handle the exception
             }
-        } else {
-            try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("C:\\RottenApples\\faces\\public\\login.xhtml");
-            } catch (IOException e) {
+        //} else {
+         //   try {
+         //       FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml");
+          //  } catch (IOException e) {
                 // Handle the exception
-            }
-        }
+         //   }
+        //}
     }
     
     
