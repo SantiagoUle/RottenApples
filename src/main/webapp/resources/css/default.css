@@ -38,3 +38,12 @@ a:link:hover, a:visited:hover {
     justify-content: center;
 
 }
+
+page{
+    background-color: #333;
+    
+}
+
+container{
+    background-color: #333;
+}

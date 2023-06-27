@@ -33,13 +33,13 @@ public class SessionController {
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn) {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\newPost.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\newPost.xhtml?faces-redirect=true");
             } catch (IOException e) {
                 // Handle the exception
             }
         } else {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml?faces-redirect=true");
             } catch (IOException e) {
                 // Handle the exception
             }
