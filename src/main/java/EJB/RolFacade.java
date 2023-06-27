@@ -49,5 +49,27 @@ public class RolFacade extends AbstractFacade<Rol> implements RolFacadeLocal {
         return rolList;
     }
     
-    
+    @Override
+    public Rol findByID (int id){
+        Rol rol = new Rol();
+        List<Rol> rolList = new ArrayList<>();
+        
+        try {
+            String consulta = "FROM Rol ur WHERE ur.id LIKE ?1";
+            Query query = em.createQuery(consulta);
+            query.setParameter(1, id);
+           
+            rolList = query.getResultList();
+            if (!rolList.isEmpty()) {
+                System.out.println("ENCONTRADO");
+                rol = rolList.get(0);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener el modelo");
+            System.err.println(e);
+        }
+        
+        return rol;
+    }
+
 }

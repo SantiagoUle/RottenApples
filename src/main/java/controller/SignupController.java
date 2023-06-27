@@ -41,7 +41,10 @@ public class SignupController implements Serializable{
             user.setFechaCreacion(new Date());
             
             Rol rol = rolEJB.findByName("User").get(0);
-            user.setIdRol(rol);//get rol
+            
+            Rol role = rolEJB.findByID(2);
+            
+            user.setIdRol(role);//get rol
             
             userEJB.create(user);
         }catch(Exception e){

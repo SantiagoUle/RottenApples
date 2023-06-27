@@ -32,5 +32,5 @@ public interface RolFacadeLocal {
     
     List<Rol> findByName (String rol);
     
-    
+    Rol findByID (int id);
 }
