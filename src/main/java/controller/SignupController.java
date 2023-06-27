@@ -1,5 +1,6 @@
 package controller;
 
+import EJB.RolFacadeLocal;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -17,12 +18,16 @@ import EJB.UserFacadeLocal;
 
 @Named
 @ViewScoped
-public class AltaUserController implements Serializable{
+public class SignupController implements Serializable{
 
     private User user;
+    private String hideNoSelectOption;
     
     @EJB
     private UserFacadeLocal userEJB;
+    
+    @EJB
+    private RolFacadeLocal rolEJB;
     
     @PostConstruct//es lo primero que se ejecuta de todo
     public void init(){
@@ -38,6 +43,15 @@ public class AltaUserController implements Serializable{
         }
     }
 
+    public String getHideNoSelectOption() {
+        
+        return hideNoSelectOption;
+    }
+
+    public void setHideNoSelectOption(String hideNoSelectOption) {
+        this.hideNoSelectOption = hideNoSelectOption;
+    }
+    
     public User getUser() {
         return user;
     }
@@ -73,7 +87,7 @@ public class AltaUserController implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final AltaUserController other = (AltaUserController) obj;
+        final SignupController other = (SignupController) obj;
         if (!Objects.equals(this.user, other.user)) {
             return false;
         }
