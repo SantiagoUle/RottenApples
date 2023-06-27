@@ -30,4 +30,7 @@ public interface CommunityFacadeLocal {
 
     int count();
     
+    Community findByName(String Community);
+    
+    void createAJoin(Community community);
 }
