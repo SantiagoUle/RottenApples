@@ -2,16 +2,27 @@
     background-color: #333;
     padding: 20px;
     text-align: left;
-    font-size: 72px;
+    justify-content: space-between;
+    font-size: 130px;
     display: flex;
     color: #990000;
 }
 .header .title {
     font-family: Impact, sans-serif;
 }
+
+.header .pfp {
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+     border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #008000;
+}
+
 .header img {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     margin-right: 35px;
 }
 
@@ -21,4 +32,49 @@
 
 .header a:hover {
     color: #990000;
+}
+
+.custom-menubar {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center !important;
+
+}
+.custom-menubar.ui-menubar {
+    text-align: center;
+}
+.custom-menubar .ui-menu-list {
+    width:100%;
+    display:table-row;
+}
+
+.custom-menubar .ui-menuitem-text {
+    font-family: Impact, sans-serif;
+    color: lightcyan;
+    text-decoration: none;
+    font-size: 40px;
+    text-align: center !important;
+    padding: 10px 20px;
+    position: center;
+    float: none!important;
+    
+}
+
+.custom-menubar .ui-menuitem-text:hover {
+    background-color: #990000;
+    color: lightcyan;
+
+}
+
+body .ui-menu.ui-menubar {
+    padding: 0.5rem;
+    background: #006400;
+    border-radius: 4px;
+}
+
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text {
+        color: lightcyan;
+}
+body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-active>.ui-menuitem-link .ui-menuitem-text {
+        color: lightcyan;
 }
