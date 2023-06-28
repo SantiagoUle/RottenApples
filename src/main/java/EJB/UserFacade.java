@@ -43,4 +43,19 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         return user;
     }
     
+    //@Override
+    public User getUser(User usuario) {
+        User user = null;
+        List<User> listaUsuarios;
+        try {
+            String consulta = "SELECT u FROM User u WHERE u.Username = '" + usuario.getUsername() + "' AND u.Password = '" + usuario.getPassword() + "' ";
+            Query query = em.createQuery(consulta);
+            listaUsuarios = query.getResultList();
+            if (!listaUsuarios.isEmpty()) {
+                user = listaUsuarios.get(0);
+            }
+        } catch (Exception e) {}
+        return user;
+    }
+    
 }

@@ -5,21 +5,21 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="header.css"/>
+        <h:outputStylesheet library="css" name="footer.css"/>
 
         <ui:composition template="./../WEB-INF/template/template.xhtml">
 
             <ui:define name="content">
-                <h:body>
-                    Hello from Pinceles
-                    <p> 
-                        <h:link value="login" outcome="/public/loginn"/>
-                    </p>
-                    <p> 
-                        <h:link value="signup" outcome="/public/signup"/>
-                    </p>
-                    <p>
-                        <h:link value="Ir a pagina error" outcome="/public/error"/>
-                    </p>
+                <h:body class=" bodyblock">
+                    Welcome to our vibrant online community where words come alive and discussions flourish!
+                    <p>Rotten Apples is a dynamic platform dedicated to expressing your thoughts and engaging in captivating conversations about a wide range of topics, with a particular focus on films, series, and all things related to entertainment.</p>
+                    <p>Here, criticism is King and all opinions have a place somewhere.</p>
+                    What are you waiting for? Join the conversation! <h:link value="Log In" outcome="/public/login?faces-redirect=true"/>
+                    <p> If you are new to the site, <h:link value="signup" outcome="/public/signup?faces-redirect=true"/> now and start posting right away!</p>
+                        <h:link value="missgnº" outcome="/public/error" class="bodyblock"/>
                 </h:body>
             </ui:define>
 

@@ -33,13 +33,13 @@ public class SessionController {
         Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         if (loggedIn) {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\newPost.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/private/users/newPost.xhtml?faces-redirect=true");
             } catch (IOException e) {
                 // Handle the exception
             }
         } else {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/public/loginn.xhtml?faces-redirect=true");
             } catch (IOException e) {
                 // Handle the exception
             }
@@ -54,19 +54,15 @@ public class SessionController {
         //Boolean loggedIn = (Boolean) session.getAttribute("loggedIn");
         loggedIn = false;
         
-        //if (loggedIn) {
+        if (loggedIn) {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\private\\users\\profileClient.xhtml");
-            } catch (IOException e) {
-                // Handle the exception
-            }
-        //} else {
-         //   try {
-         //       FacesContext.getCurrentInstance().getExternalContext().redirect("\\RottenApples\\faces\\public\\loginn.xhtml");
-          //  } catch (IOException e) {
-                // Handle the exception
-         //   }
-        //}
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/private/users/newPost.xhtml?faces-redirect=true");
+            } catch (IOException e) {}
+        } else {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/public/loginn.xhtml?faces-redirect=true");
+            } catch (IOException e) {}
+        }
     }
     
     

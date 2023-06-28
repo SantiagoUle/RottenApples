@@ -31,11 +31,11 @@
                 <div class="title">ROTTEN APPLES</div>
 
                 <p:menubar styleClass="custom-menubar">
-                    <p:menuitem value="New +" action="#{SessionController.buttonNewPost}"/>
+                    <p:menuitem value="New +" ajax="false" action="#{SessionController.buttonNewPost}"/>
                     <p:menuitem value="Hot" url="\RottenApples\faces\public\hot.xhtml?faces-redirect=true"/>
                     <p:menuitem value="Communities" url="\RottenApples\faces\public\communities.xhtml?faces-redirect=true"/>
                     
-                    <p:menuitem value="Profile" action="#{SessionController.buttonProfile}">
+                    <p:menuitem value="Profile" ajax="false" action="#{SessionController.buttonProfile}">
                         <h:graphicImage class="pfp" value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png"/>
                     </p:menuitem>
 

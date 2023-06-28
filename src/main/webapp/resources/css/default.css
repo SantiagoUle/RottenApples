@@ -47,3 +47,7 @@ page{
 container{
     background-color: #333;
 }
+
+bodyblock{
+    color: #ff0000;
+}
