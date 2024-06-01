@@ -3,69 +3,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <h:outputStylesheet library="css" name="default.css"/>
         <h:outputStylesheet library="css" name="cssLayout.css"/>
         <h:outputStylesheet library="css" name="header.css"/>
         <h:outputStylesheet library="css" name="footer.css"/>
-        
+
         <title>Signup</title>
     </h:head>
-    <h:body>
-        <p>It's never too late to ROT</p><br></br>
-        <p> 
-            Introduce your data:
-        </p>
-        
-        <div class="card">
 
-            <h:form>
-                <p:growl id="growl" sticky="true" showDetail="true"/>
+    <ui:composition template="./../WEB-INF/template/template.xhtml">
+        <ui:define name="content">
+            <p>
+                <h:body>
+                    <p>It's never too late to ROT</p><br></br>
+                    <p> 
+                        Introduce your data:
+                    </p>
 
-                <p:tab id="personal" title="Personal">
-                    <p:panel header="User data">
-                        <p:messages id="msgPrincipal" severity="info, fatal" showDetail="true" showSummary="true"/>
+                    <div class="card">
 
-                        <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:form>
+                            <p:growl id="growl" sticky="true" showDetail="true"/>
 
-                            <h:outputText value="Username: "/>
-                            <p:inputText id="name" value="#{signupController.user.username}" required="true" label="username"
-                                         autocomplete="false" requiredMessage="Necesitamos saber tu username"/>
+                            <p:tab id="personal" title="Personal">
+                                <p:panel header="User data">
+                                    <p:messages id="msgPrincipal" severity="info, fatal" showDetail="true" showSummary="true"/>
 
-                            <h:outputText value="Contraseña: "/>
-                            <p:password id="pass" match="pass2" required="true" label="Contraseña"
-                                        value="#{signupController.user.password}" requiredMessage="Introduce tu contraseña"
-                                        autocomplete="false" feedback="true"/>
+                                    <h:panelGrid columns="2" columnClasses="label, value">
 
-                            <h:outputText value="Repita contraseña: "/>
-                            <p:password id="pass2" value="#{signupController.user.password}"
-                                        requiredMessage="Vuelve a introducir tu contraseña" required="true"
-                                        label="Contraseña repetida"
-                                        autocomplete="false" feedback="true"/>
-                            <h:outputText value="Rol: "/>
-                            <h:outputText value="User"/>
-                            
+                                        <h:outputText value="Username: "/>
+                                        <p:inputText id="name" value="#{signupController.user.username}" required="true" label="username"
+                                                     autocomplete="false" requiredMessage="Necesitamos saber tu username"/>
+
+                                        <h:outputText value="Contraseña: "/>
+                                        <p:password id="pass" match="pass2" required="true" label="Contraseña"
+                                                    value="#{signupController.user.password}" requiredMessage="Introduce tu contraseña"
+                                                    autocomplete="false" feedback="true"/>
+
+                                        <h:outputText value="Repita contraseña: "/>
+                                        <p:password id="pass2" value="#{signupController.user.password}"
+                                                    requiredMessage="Vuelve a introducir tu contraseña" required="true"
+                                                    label="Contraseña repetida"
+                                                    autocomplete="false" feedback="true"/>
+                                        <h:outputText value="Rol: "/>
+                                        <h:outputText value="User"/>
+
 <!--                            <p:inputText id="rol" value="#{altaUserController.user.idRol}" required="true" label="rol"
-                                         autocomplete="false" requiredMessage="Necesitamos saber tu rol"/>
--->
-                            
+             autocomplete="false" requiredMessage="Necesitamos saber tu rol"/>
+                                        -->
 
 
 
-                        </h:panelGrid>
-                        <h:commandButton value="Registro" action="#{signupController.insertarUser()}" style="margin-right:20px;"/>
 
-                    </p:panel>
-                    <p:panel header="Do you own an account already?">
+                                    </h:panelGrid>
+                                    <h:commandButton value="Registro" action="#{signupController.insertarUser()}" style="margin-right:20px;"/>
 
-                        <p:outputLabel>You can login </p:outputLabel><h:link value="here" outcome="/public/login"/>
-                    </p:panel>
+                                </p:panel>
+                                <p:panel header="Do you own an account already?">
 
-                </p:tab>
+                                    <p:outputLabel>You can login </p:outputLabel><h:link value="here" outcome="/public/login"/>
+                                </p:panel>
 
-            </h:form>
-        </div>
-    </h:body>
+                            </p:tab>
+
+                        </h:form>
+                    </div>
+                </h:body>
+            </p>
+        </ui:define>
+    </ui:composition>
 </html>
 

@@ -31,7 +31,7 @@
 }
 
 .header a:hover {
-    color: #990000;
+    color: #333;
 }
 
 .custom-menubar {
@@ -50,25 +50,18 @@
 
 .custom-menubar .ui-menuitem-text {
     font-family: Impact, sans-serif;
-    color: lightcyan;
-    text-decoration: none;
-    font-size: 40px;
-    text-align: center !important;
+    font-size: 45px;
     padding: 10px 20px;
-    position: center;
-    float: none!important;
-    
 }
-
+/*
 .custom-menubar .ui-menuitem-text:hover {
-    background-color: #990000;
-    color: lightcyan;
+    background-color: #333;
 
 }
-
+*/
 body .ui-menu.ui-menubar {
     padding: 0.5rem;
-    background: #006400;
+    background: #58A039;
     border-radius: 4px;
 }
 
