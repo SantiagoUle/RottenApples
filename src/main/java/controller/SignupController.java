@@ -40,10 +40,10 @@ public class SignupController implements Serializable{
         try{
             user.setFechaCreacion(new Date());
             
-            Rol role = rolEJB.findByID(2);
+            Rol role = rolEJB.find(2);
             
             user.setIdRol(role);//get rol
-            
+            System.out.println("antes de la creacion");
             userEJB.create(user);
         }catch(Exception e){
             System.out.println("ERROR al insertar user/n" +e.getMessage());
