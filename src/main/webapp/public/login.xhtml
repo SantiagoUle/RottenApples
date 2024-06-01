@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="header.css"/>
+        <h:outputStylesheet library="css" name="footer.css"/>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        
+
+        
+        <p:panel header="Log in our platform">
+
+            <p:growl id="growl" sticky="true" showDetail="true" life="2000"/>
+            <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="username" value="Username:"/>
+                <p:inputText id="username" value="#{loginController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
+
+                <p:outputLabel for="password" value="Password:"/>
+                <p:password id="password" autocomplete="false" value="#{loginController.user.password}" required="true" label="Contraseña"/>
+
+                <p:commandButton value="Login" update="@form" actionListener="#{logInController.login()}" style="margin-right:20px"/>
+            </h:panelGrid>
+                </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
