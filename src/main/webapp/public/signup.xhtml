@@ -25,7 +25,7 @@
 
                     <div class="card">
 
-                        <h:form>
+                        <p:form>
                             <p:growl id="growl" sticky="true" showDetail="true"/>
 
                             <p:tab id="personal" title="Personal">
@@ -34,22 +34,22 @@
 
                                     <h:panelGrid columns="2" columnClasses="label, value">
 
-                                        <h:outputText value="Username: "/>
+                                        <p:outputLabel for="name" value="Username: "/>
                                         <p:inputText id="name" value="#{signupController.user.username}" required="true" label="username"
                                                      autocomplete="false" requiredMessage="Necesitamos saber tu username"/>
 
-                                        <h:outputText value="Contraseña: "/>
+                                        <p:outputLabel for="pass"value="Contraseña: "/>
                                         <p:password id="pass" match="pass2" required="true" label="Contraseña"
                                                     value="#{signupController.user.password}" requiredMessage="Introduce tu contraseña"
                                                     autocomplete="false" feedback="true"/>
 
-                                        <h:outputText value="Repita contraseña: "/>
+                                        <p:outputLabel for="pass2" value="Repita contraseña: "/>
                                         <p:password id="pass2" value="#{signupController.user.password}"
                                                     requiredMessage="Vuelve a introducir tu contraseña" required="true"
                                                     label="Contraseña repetida"
                                                     autocomplete="false" feedback="true"/>
-                                        <h:outputText value="Rol: "/>
-                                        <h:outputText value="User"/>
+                                        <p:outputLabel value="Rol: "/>
+                                        <p:outputLabel value="User"/>
 
 <!--                            <p:inputText id="rol" value="#{altaUserController.user.idRol}" required="true" label="rol"
              autocomplete="false" requiredMessage="Necesitamos saber tu rol"/>
@@ -69,7 +69,7 @@
 
                             </p:tab>
 
-                        </h:form>
+                        </p:form>
                     </div>
                 </h:body>
             </p>
