@@ -19,18 +19,19 @@
                 <h:body>
 
                     <p:panel header="Log in our platform">
+                        <h:form>
+                            <p:growl id="growl" sticky="true" showDetail="true" life="2000"/>
 
-                        <p:growl id="growl" sticky="true" showDetail="true" life="2000"/>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:outputLabel for="username" value="Username:"/>
+                                <p:inputText id="username" value="#{loginController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
 
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:outputLabel for="username" value="Username:"/>
-                            <p:inputText id="username" value="#{loginController.user.username}" required="true" autocomplete="false" label="Nombre de usuario:"/>
+                                <p:outputLabel for="password" value="Password:"/>
+                                <p:password id="password" autocomplete="false" value="#{loginController.user.password}" required="true" label="Contraseña"/>
 
-                            <p:outputLabel for="password" value="Password:"/>
-                            <p:password id="password" autocomplete="false" value="#{loginController.user.password}" required="true" label="Contraseña"/>
-
-                            <p:commandButton value="Login" actionListener="#{logInController.login()}" style="margin-right:20px"/>
-                        </h:panelGrid>
+                                <p:commandButton value="Login" actionListener="#{loginController.login()}" style="margin-right:20px"/>
+                            </h:panelGrid>
+                        </h:form>
                     </p:panel>
                 </h:body>
             </p>

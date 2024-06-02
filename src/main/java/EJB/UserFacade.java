@@ -31,30 +31,19 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         User user = null;
         List<User> listaUsuarios;
         try {
-            String consulta = "SELECT u FROM usuarios u WHERE u.Username = '" + user.getUsername() + "' AND u.Password = '" + user.getPassword() + "' ";
-            Query query = em.createQuery(consulta);
-            // query.setParameter(1, usuario.getUsername());
-            //query.setParameter(2, usuario.getPassword());
+            String consulta = "SELECT u FROM User u WHERE u.username=:param1 and u.password=:param2";
+            //String consulta = "SELECT u FROM usuarios u WHERE u.Username = '" + user.getUsername() + "' AND u.Password = '" + user.getPassword() + "' ";
+
+            Query query =em.createQuery(consulta);
+            query.setParameter("param1",us.getUsername());
+            query.setParameter("param2",us.getPassword());
             listaUsuarios = query.getResultList();
             if (!listaUsuarios.isEmpty()) {
                 user = listaUsuarios.get(0);
             }
-        } catch (Exception e) {}
-        return user;
-    }
-    
-    //@Override
-    public User getUser(User usuario) {
-        User user = null;
-        List<User> listaUsuarios;
-        try {
-            String consulta = "SELECT u FROM User u WHERE u.Username = '" + usuario.getUsername() + "' AND u.Password = '" + usuario.getPassword() + "' ";
-            Query query = em.createQuery(consulta);
-            listaUsuarios = query.getResultList();
-            if (!listaUsuarios.isEmpty()) {
-                user = listaUsuarios.get(0);
-            }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         return user;
     }
     

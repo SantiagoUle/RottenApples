@@ -5,17 +5,18 @@ import EJB.UserFacadeLocal;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
 import model.User;
 
-@ManagedBean
-@SessionScoped
-public class LogInController implements Serializable {
+@Named
+@ViewScoped
+public class LoginController implements Serializable {
     private User user;
 
     @EJB
@@ -32,16 +33,17 @@ public class LogInController implements Serializable {
 
     public String login() {
         FacesMessage message = null;
-        String direction = "/RottenApples/faces/public/loginn.xhtml?faces-redirect=true";
+        String direction = "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
         User comprobado = checkUser();
         if (comprobado != null) {
-            direction= "/RottenApples/faces/public/loginn.xhtml?faces-redirect=true";
+            direction= "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome ", user.getUsername());
 
+            System.out.println("olaola");
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", comprobado);
         } else {
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas");
-            direction= "/RottenApples/faces/public/loginn.xhtml?faces-redirect=true";
+            direction= "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
@@ -51,8 +53,7 @@ public class LogInController implements Serializable {
     public User checkUser() {
         User comprobado = null;
         try {
-            comprobado = userFacade.getUser(user);
-            System.out.println("olaola");
+            comprobado = userFacade.verifyUser(user);
 
         } catch (Exception e) {
 

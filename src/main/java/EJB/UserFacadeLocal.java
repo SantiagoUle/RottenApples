@@ -32,6 +32,4 @@ public interface UserFacadeLocal {
     
     User verifyUser(User us);
     
-    User getUser(User usuario);
-    
 }
