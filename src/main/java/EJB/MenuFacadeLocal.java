@@ -8,6 +8,7 @@ package EJB;
 import java.util.List;
 import javax.ejb.Local;
 import model.Menu;
+import model.User;
 
 /**
  *
@@ -21,6 +22,8 @@ public interface MenuFacadeLocal {
     void edit(Menu menu);
 
     void remove(Menu menu);
+    
+    public List<Menu> obtenerMenususuario(User us);
 
     Menu find(Object id);
 
