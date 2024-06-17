@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import model.User;
+import static tool.Links.*;
 
 /**
  *
@@ -56,11 +57,11 @@ public class SessionController {
         
         if (loggedIn) {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/private/users/newPost.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect(PROFILE);
             } catch (IOException e) {}
         } else {
             try {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/RottenApples/faces/public/loginn.xhtml?faces-redirect=true");
+                FacesContext.getCurrentInstance().getExternalContext().redirect(HOME);
             } catch (IOException e) {}
         }
     }

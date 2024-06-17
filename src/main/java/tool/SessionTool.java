@@ -26,7 +26,6 @@ public class SessionTool implements Serializable{
     
     
     
-    
     public void add(String key, Object value){
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect("");

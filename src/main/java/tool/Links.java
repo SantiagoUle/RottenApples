@@ -11,8 +11,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class Links implements Serializable{
-    public static String HOME = "\\RottenApples";
-    public static String PROFILE = "";
+    public static String HOME = "\\RottenApples\\faces\\public\\index.xhtml";
+    public static String PROFILE = "\\RottenApples\\faces\\private\\users\\profileClient.xhtml";
     public static String NEWPOST = "\\RottenApples\\faces\\private\\users\\newPost.xhtml";
     public static String HOT = "\\RottenApples\\faces\\public\\hot.xhtml";
     public static String COMMUNITIES = "\\RottenApples\\faces\\public\\communities.xhtml";
