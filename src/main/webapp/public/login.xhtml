@@ -29,7 +29,7 @@
                                 <p:outputLabel for="password" value="Password:"/>
                                 <p:password id="password" autocomplete="false" value="#{loginController.user.password}" required="true" label="Contraseña"/>
 
-                                <p:commandButton value="Login" actionListener="#{loginController.login()}" style="margin-right:20px"/>
+                                <p:commandButton value="Login" action="#{loginController.login()}" style="margin-right:20px"/>
                             </h:panelGrid>
                         </h:form>
                     </p:panel>

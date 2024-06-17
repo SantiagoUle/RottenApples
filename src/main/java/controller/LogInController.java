@@ -33,17 +33,18 @@ public class LoginController implements Serializable {
 
     public String login() {
         FacesMessage message = null;
-        String direction = "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
+        String direction = "/public/index.xhtml?faces-redirect=true";
         User comprobado = checkUser();
         if (comprobado != null) {
-            direction= "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
+            //direction= ".\\test\\error.xhtml";
+            direction= "/private/users/profileClient.xhtml";
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome ", user.getUsername());
 
             System.out.println("olaola");
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", comprobado);
         } else {
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas");
-            direction= "/RottenApples/faces/public/index.xhtml?faces-redirect=true";
+            direction= "/public/index.xhtml";
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
