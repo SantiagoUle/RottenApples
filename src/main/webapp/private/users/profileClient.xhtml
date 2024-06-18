@@ -14,11 +14,11 @@
                         <h:graphicImage value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png" width="150px" height="150px" class="profile-picture"/>
                     <h:panelGrid>
                         <h:outputText value="Nickname:"/>
-                        <div color="#008000"><h:outputText value="#{userController.user.username}"/></div>
+                        <div color="#008000"><h:outputText value="#{LoginController.user.username}"/></div>
                         <h:outputText value="Date of Creation:" />
-                        <div color="#008000"><h:outputText value="#{userController.user.fechaCreacion}"/></div>
+                        <div color="#008000"><h:outputText value="#{user.fechaCreacion}"/></div>
                         <h:outputText value="Last Online:"/>
-                        <div color="#008000"><h:outputText value="#{userController.user.ultimaConexion}"/></div>
+                        <div color="#008000"><h:outputText value="#{user.ultimaConexion}"/></div>
                     </h:panelGrid>
                 </h:panelGrid>
             </ui:define>
