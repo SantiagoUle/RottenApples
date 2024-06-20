@@ -20,7 +20,9 @@
 
                     <p:panel header="Log in our platform">
                         <h:form>
-                            <p:growl id="growl" sticky="true" showDetail="true" life="2000"/>
+                            <p:growl id="error" showDetail="true" >
+                                <p:autoUpdate/>
+                            </p:growl>
 
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:outputLabel for="username" value="Username:"/>
@@ -39,4 +41,3 @@
     </ui:composition>
 
 </html>
-
