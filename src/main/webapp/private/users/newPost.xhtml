@@ -11,11 +11,13 @@
         <ui:define name="content">
             <h1>Create a new Post</h1>
             <h:form>
+                <p:messages showDetail="true" showSummary="true"/>
+                <p:autoUpdate/>
                 <h:panelGrid columns="2">
                     <p:outputLabel for="item" value="Categoría"/>
                     
-                    <p:selectOneMenu id="item" value="#{postController.categorias}">
-                        <f:selectItems value="#{postController.categorias}" var="cat" itemLabel="#{cat.nombreItem}" itemValue="#{cat.descriptionItem}"/>
+                    <p:selectOneMenu id="item" value="#{postController.item}" converter="omnifaces.SelectItemsConverter">
+                        <f:selectItems value="#{postController.categorias}" var="cat" itemLabel="#{cat.nombreItem}" />
                         
                     </p:selectOneMenu>
                     
@@ -26,11 +28,9 @@
                     <p:inputTextarea id="txtCuerpo" value="#{postController.post.cuerpoReview}"/>
                     
                     <h:column/>
-                    <p:commandButton value="Publicar" action="#{postController.register()}"/>
-                    
+                    <p:commandButton value="Aversiva" action="#{postController.register()}"/>
                 </h:panelGrid>
             </h:form>
-
         </ui:define>
 
     </ui:composition>

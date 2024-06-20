@@ -54,6 +54,11 @@ public class Item implements Serializable{
     }
 
     @Override
+    public String toString(){
+        return String.valueOf(idItem);
+    }
+    
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 67 * hash + this.idItem;

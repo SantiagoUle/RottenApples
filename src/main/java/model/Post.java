@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -40,11 +41,11 @@ public class Post implements Serializable{
     private Date fechaReview;
 
     @JoinColumn(name = "idUsuario")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private User usuarioReview;
 
     @JoinColumn(name = "idItem")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private Item itemReview;
 
     public int getIdReview() {
