@@ -28,23 +28,23 @@ public class Post implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReview;
 
-    @Column(name = "titulo")//no es necesario pero mejor ponerlo
+    @Column(name = "Titulo")//no es necesario pero mejor ponerlo
     private String titulo;
 
-    @Column(name = "cuerpo")
+    @Column(name = "Cuerpo")
     private String cuerpoReview;
 
-    @Column(name = "valoracion")
+    @Column(name = "Valoracion")
     private boolean valoracionReview;
 
-    @Column(name = "fecha")
+    @Column(name = "Fecha")
     private Date fechaReview;
 
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "IdUsuario")
     @ManyToOne
     private User usuarioReview;
 
-    @JoinColumn(name = "idItem")
+    @JoinColumn(name = "IdItem")
     @ManyToOne
     private Item itemReview;
 

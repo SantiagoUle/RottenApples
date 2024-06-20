@@ -21,10 +21,10 @@ public class Rol implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int IdRol;
     
-    @Column (name="tipoUsuario")
+    @Column (name="TipoUsuario")
     private char tipoUsuario;
     
-    @Column(name="descripcion")
+    @Column(name="Descripcion")
     private String descripcion;
 
     public int getIdRol() {

@@ -26,20 +26,20 @@ public class Comment implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idComentario;
     
-    @Column (name="cuerpo")//no es necesario pero mejor ponerlo
+    @Column (name="Cuerpo")//no es necesario pero mejor ponerlo
     private String cuerpoComentario;
     
-    @Column(name="valoracion")
+    @Column(name="Valoracion")
     private boolean valComentario;
     
-    @Column(name="fechaCreacion")
+    @Column(name="FechaCreacion")
     private Date fechaComentario;
     
-    @JoinColumn(name="idUsuario")
+    @JoinColumn(name="IdUsuario")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private User usuarioComentario;
     
-    @JoinColumn(name="idReview")
+    @JoinColumn(name="IdReview")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Post reviewComentario;
 
