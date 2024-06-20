@@ -7,26 +7,26 @@ package EJB;
 
 import java.util.List;
 import javax.ejb.Local;
-import model.Review;
+import model.Post;
 
 /**
  *
  * @author Nomad
  */
 @Local
-public interface ReviewFacadeLocal {
+public interface PostFacadeLocal {
 
-    void create(Review review);
+    void create(Post review);
 
-    void edit(Review review);
+    void edit(Post review);
 
-    void remove(Review review);
+    void remove(Post review);
 
-    Review find(Object id);
+    Post find(Object id);
 
-    List<Review> findAll();
+    List<Post> findAll();
 
-    List<Review> findRange(int[] range);
+    List<Post> findRange(int[] range);
 
     int count();
     

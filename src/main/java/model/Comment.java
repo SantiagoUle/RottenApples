@@ -41,7 +41,7 @@ public class Comment implements Serializable{
     
     @JoinColumn(name="idReview")
     @ManyToOne(cascade=CascadeType.PERSIST)
-    private Review reviewComentario;
+    private Post reviewComentario;
 
     public int getIdComentario() {
         return idComentario;
@@ -83,11 +83,11 @@ public class Comment implements Serializable{
         this.usuarioComentario = usuarioComentario;
     }
 
-    public Review getReviewComentario() {
+    public Post getReviewComentario() {
         return reviewComentario;
     }
 
-    public void setReviewComentario(Review reviewComentario) {
+    public void setReviewComentario(Post reviewComentario) {
         this.reviewComentario = reviewComentario;
     }
 
