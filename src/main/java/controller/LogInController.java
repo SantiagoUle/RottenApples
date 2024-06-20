@@ -25,29 +25,29 @@ public class LoginController implements Serializable {
 
     @PostConstruct
     public void init() {
+        /* Esto cerraria la sesion
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().clear();
+        */
         user = new User();
         //role = roleFacade.getRoleById(RoleEnum.USER.ordinal());
 
     }
-
+/*
     public String login() {
-        FacesMessage message = null;
         String direction = "/public/index.xhtml?faces-redirect=true";
         User comprobado = checkUser();
         if (comprobado != null) {
-            //direction= ".\\test\\error.xhtml";
             direction= "/private/users/profileClient.xhtml";
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome ", user.getUsername());
+            //FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome ", user.getUsername());
 
-            System.out.println("olaola");
+            //System.out.println("olaola");
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", comprobado);
         } else {
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas");
-            direction= "/public/index.xhtml";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas"));
+            direction= "/public/error.xhtml";
         }
 
-        FacesContext.getCurrentInstance().addMessage(null, message);
+        //FacesContext.getCurrentInstance().addMessage(null, message);
         return direction;
     }
 
@@ -61,7 +61,25 @@ public class LoginController implements Serializable {
         }
         return comprobado;
     }
-
+*/
+    public String login() {
+        User us = null;
+        String direction = null;
+        try {
+            us = userFacade.verifyUser(user);
+            if (us != null) {     
+                //Almacenar en la sesión de JSF
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", us);
+                direction = "/private/users/profileClient.xhtml";
+                System.out.println("olala");
+            } else {
+                FacesContext.getCurrentInstance().addMessage("error", new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas"));
+            }
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error!"));
+        }
+        return direction;
+    }
 
     public String moveToEvent() {
         return "event.xhtml";

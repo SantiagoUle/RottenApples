@@ -11,10 +11,10 @@ Footer from: https://codepen.io/alvarotrigo/pen/ZExxeRz
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
+    <body>
+        <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
+            <ui:define name="content">
 
-    <ui:composition template="./../WEB-INF/template/template.xhtml">
-        <ui:define name="content">
-            <body>
                 <div>TODO write content</div>
 
                 <!-- FORMULARIO PARA INSERTAR UN ITEM A LA BASE DE DATOS -->
@@ -34,7 +34,7 @@ Footer from: https://codepen.io/alvarotrigo/pen/ZExxeRz
                     <h:outputText id="display" class="block" />
                     <p:commandButton value="Insertar" actionListener="#{altaCommentController.insertarComentario()}" />
                 </h:form>
-            </body>
-        </ui:define>
-    </ui:composition>
+            </ui:define>
+        </ui:composition>            </body>
+
 </html>
