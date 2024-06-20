@@ -23,10 +23,10 @@ public class Community implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idComunidad;
     
-    @Column (name="nombre")
+    @Column (name="Nombre")
     private String nombreComunidad;
     
-    @Column(name="descripcion")
+    @Column(name="Descripcion")
     private String estadoComunidad;
 
     public int getIdComunidad() {

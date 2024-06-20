@@ -26,17 +26,17 @@ public class Menu implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idMenu;
     
-    @Column (name="nombre")//no es necesario pero mejor ponerlo
+    @Column (name="Nombre")//no es necesario pero mejor ponerlo
     private String nombreMenu;
     
-    @Column(name="url")
+    @Column(name="Url")
     private String urlMenu;
     
-    @JoinColumn(name="idRol")
+    @JoinColumn(name="IdRol")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Rol rolMenu;
     
-    @JoinColumn(name="idMenu_Menu")
+    @JoinColumn(name="IdMenu_Menu")
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Menu menu_Menu;
 

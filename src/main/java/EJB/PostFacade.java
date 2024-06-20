@@ -3,14 +3,14 @@ package EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import model.Review;
+import model.Post;
 
 /**
  *
  * @author Cesar
  */
 @Stateless
-public class ReviewFacade extends AbstractFacade<Review> implements ReviewFacadeLocal {
+public class PostFacade extends AbstractFacade<Post> implements PostFacadeLocal {
 
     @PersistenceContext(unitName = "RottenPU")
     private EntityManager em;
@@ -20,8 +20,8 @@ public class ReviewFacade extends AbstractFacade<Review> implements ReviewFacade
         return em;
     }
 
-    public ReviewFacade() {
-        super(Review.class);
+    public PostFacade() {
+        super(Post.class);
     }
 
 }

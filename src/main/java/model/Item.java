@@ -23,10 +23,10 @@ public class Item implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private int idItem;
     
-    @Column (name="nombre")//no es necesario pero mejor ponerlo
+    @Column (name="Nombre")//no es necesario pero mejor ponerlo
     private String nombreItem;
     
-    @Column(name="descripcion")
+    @Column(name="Descripcion")
     private String descriptionItem;
 
     public int getIdItem() {
@@ -53,6 +53,11 @@ public class Item implements Serializable{
         this.descriptionItem = descriptionItem;
     }
 
+    @Override
+    public String toString(){
+        return String.valueOf(idItem);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;

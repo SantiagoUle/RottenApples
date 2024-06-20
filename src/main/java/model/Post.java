@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
 /**
  *
@@ -21,30 +22,30 @@ import javax.persistence.Table;
 @Entity
 @Table(name="reviews")
 
-public class Review implements Serializable{
+public class Post implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReview;
 
-    @Column(name = "titulo")//no es necesario pero mejor ponerlo
-    private String Review;
+    @Column(name = "Titulo")//no es necesario pero mejor ponerlo
+    private String titulo;
 
-    @Column(name = "cuerpo")
+    @Column(name = "Cuerpo")
     private String cuerpoReview;
 
-    @Column(name = "valoracion")
+    @Column(name = "Valoracion")
     private boolean valoracionReview;
 
-    @Column(name = "fecha")
+    @Column(name = "Fecha")
     private Date fechaReview;
 
-    @JoinColumn(name = "idUsuario")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "IdUsuario")
+    @ManyToOne
     private User usuarioReview;
 
-    @JoinColumn(name = "idItem")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "IdItem")
+    @ManyToOne
     private Item itemReview;
 
     public int getIdReview() {
@@ -55,12 +56,12 @@ public class Review implements Serializable{
         this.idReview = idReview;
     }
 
-    public String getReview() {
-        return Review;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setReview(String Review) {
-        this.Review = Review;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getCuerpoReview() {
@@ -107,7 +108,7 @@ public class Review implements Serializable{
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + this.idReview;
-        hash = 59 * hash + Objects.hashCode(this.Review);
+        hash = 59 * hash + Objects.hashCode(this.titulo);
         hash = 59 * hash + Objects.hashCode(this.cuerpoReview);
         hash = 59 * hash + (this.valoracionReview ? 1 : 0);
         hash = 59 * hash + Objects.hashCode(this.fechaReview);
@@ -127,14 +128,14 @@ public class Review implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Review other = (Review) obj;
+        final Post other = (Post) obj;
         if (this.idReview != other.idReview) {
             return false;
         }
         if (this.valoracionReview != other.valoracionReview) {
             return false;
         }
-        if (!Objects.equals(this.Review, other.Review)) {
+        if (!Objects.equals(this.titulo, other.titulo)) {
             return false;
         }
         if (!Objects.equals(this.cuerpoReview, other.cuerpoReview)) {
