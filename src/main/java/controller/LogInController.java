@@ -10,6 +10,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.Date;
+import EJB.UserFacadeLocal;
 import java.util.List;
 import java.util.logging.Logger;
 import model.User;
@@ -18,7 +20,7 @@ import model.User;
 @ViewScoped
 public class LoginController implements Serializable {
     private User user;
-
+    
     @EJB
     private UserFacadeLocal userFacade;
     //private SessionUtil session;
@@ -70,8 +72,9 @@ public class LoginController implements Serializable {
             if (us != null) {     
                 //Almacenar en la sesión de JSF
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", us);
-                direction = "/private/users/profileClient.xhtml";
-                System.out.println("olala");
+                direction = "/private/users/profileClient.xhtml?faces-redirect=true";
+                us.setUltimaConexion(new Date());
+                userFacade.edit(us);
             } else {
                 FacesContext.getCurrentInstance().addMessage("error", new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas"));
             }

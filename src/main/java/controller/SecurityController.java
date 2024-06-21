@@ -26,4 +26,9 @@ public class SecurityController implements Serializable {
 
         }
     }
+    public String logout(){
+        System.out.println("cerrarsesion");
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "/public/index.xhtml";
+    }
 }
