@@ -10,14 +10,20 @@
         <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
 
             <ui:define name="content">
-                Your feed:
+                
                 <h:form>
-                    <p:dataGrid id="grid" columns="1" value="#{feedController.list}" var="posts">
-                        <p:panel header="#{posts.titulo} - #{posts.usuarioReview.username}">
-                        <p:outputLabel value="#{posts.fechaReview}"/>
-                        <!--<p:outputLabel value="#{posts.valoracionReview}"/> -->
-                        </p:panel>
-                    </p:dataGrid>
+                    <p:dataTable id="grid" value="#{feedController.list}" var="posts">
+                        <p:column headerText="Your feed:">
+                            <p:panel header="#{posts.titulo} - por #{posts.usuarioReview.username}">
+                                <p:outputLabel value="#{posts.fechaReview}"/>
+                                <!--<p:outputLabel value="#{posts.valoracionReview}"/> -->
+                            </p:panel>
+                        </p:column>
+                        <p:column width="100">
+                            <p:commandButton value="Ver más" action="#{feedController.showDetails()}"/>
+
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
 
             </ui:define>

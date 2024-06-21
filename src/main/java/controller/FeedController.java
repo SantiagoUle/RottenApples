@@ -2,9 +2,12 @@ package controller;
 
 import EJB.ItemFacadeLocal;
 import EJB.PostFacadeLocal;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
@@ -14,6 +17,7 @@ import javax.inject.Named;
 import model.Item;
 import model.Post;
 import model.User;
+import tool.Links;
 
 /**
  *
@@ -34,6 +38,14 @@ public class FeedController implements Serializable{
     public void init(){
         user =  (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         list = postFacade.findAll();
+    }
+    
+    public void showDetails(){
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect(Links.POST + "?faces-redirect=true");
+        } catch (IOException ex) {
+            Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     //G&S

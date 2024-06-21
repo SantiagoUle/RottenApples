@@ -19,4 +19,5 @@ public class Links implements Serializable{
     public static String LOGIN = "\\RottenApples\\faces\\public\\loginn.xhtml";
     public static String REGISTER = "\\RottenApples\\faces\\public\\signup.xhtml";
     public static String ERROR = "\\RottenApples\\faces\\public\\error.xhtml";
+    public static String POST = "\\RottenApples\\faces\\private\\common\\post.xhtml";
 }
