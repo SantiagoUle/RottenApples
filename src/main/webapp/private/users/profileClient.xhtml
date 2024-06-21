@@ -3,16 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
         <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
 
-                <ui:define name="content">
-                    <h1>Profile Page</h1>
-                    <h:panelGrid columns="2">
-                        <h:graphicImage value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png" width="150px" height="150px" class="profile-picture"/>
+            <ui:define name="content">
+                <h1>Profile Page</h1>
+                <h:panelGrid columns="2">
+                    <h:graphicImage value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png" width="150px" height="150px" class="profile-picture"/>
                     <h:panelGrid columns ="2">
                         <h:outputText value="Nickname: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.username}"/>
@@ -23,9 +23,11 @@
                         <h:outputText value="Community: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.idComunidad.nombreComunidad}"/>
                     </h:panelGrid>
-                        
-                    </h:panelGrid>  
-                </ui:define>
+                    <h:form>
+                        <p:commandButton value="Logout" action="#{securityController.logout()}" />
+                    </h:form>
+                </h:panelGrid>  
+            </ui:define>
 
         </ui:composition>
 
