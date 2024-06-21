@@ -73,8 +73,8 @@ public class LoginController implements Serializable {
                 //Almacenar en la sesión de JSF
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", us);
                 direction = "/private/users/profileClient.xhtml?faces-redirect=true";
-                /*us.setUltimaConexion(new Date());
-                userFacade.edit(us);*/
+                us.setUltimaConexion(new Date());
+                userFacade.edit(us);
             } else {
                 FacesContext.getCurrentInstance().addMessage("error", new FacesMessage(FacesMessage.SEVERITY_WARN, "Error", "Credenciales incorrectas"));
             }
