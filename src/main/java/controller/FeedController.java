@@ -42,7 +42,7 @@ public class FeedController implements Serializable{
     
     public void showDetails(){
         try {
-            FacesContext.getCurrentInstance().getExternalContext().redirect(Links.POST + "?faces-redirect=true");
+            FacesContext.getCurrentInstance().getExternalContext().redirect(Links.POST);
         } catch (IOException ex) {
             Logger.getLogger(FeedController.class.getName()).log(Level.SEVERE, null, ex);
         }
