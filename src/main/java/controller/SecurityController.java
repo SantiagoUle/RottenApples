@@ -19,13 +19,27 @@ public class SecurityController implements Serializable {
             User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
 
             if (us == null) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/error.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/login.xhtml");
             }
 
         } catch (Exception e) {
 
         }
     }
+    
+    public void verifyAdmin() {
+        try {
+            User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+
+            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/login.xhtml");
+            }
+
+        } catch (Exception e) {
+
+        }
+    }
+    
     public String logout(){
         System.out.println("cerrarsesion");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
