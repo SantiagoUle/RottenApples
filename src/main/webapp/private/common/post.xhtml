@@ -18,9 +18,17 @@
     <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
         <ui:define name="content">
             <Body>
-                <h1>Detalles del Post</h1>
-                <h:outputLabel value="#{postController.selectedPost.titulo}" />
-                <h:outputLabel value="#{postController.selectedPost.cuerpoReview}" />
+                <br/>
+                <h2>Detalles del Post</h2>
+                <div style="margin: 70px" >
+                    <h7><h:outputText value="#{postController.selectedPost.titulo}" /></h7>
+                    <br/><br/><br/>
+                    <h8><h:outputText value="#{postController.selectedPost.cuerpoReview}" styleClass="preformatted"/></h8>
+                    
+                    
+                    
+                    
+                </div>
             </Body>
         </ui:define>
     </ui:composition>

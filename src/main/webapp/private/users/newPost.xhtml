@@ -22,10 +22,10 @@
                     </p:selectOneMenu>
                     
                     <p:outputLabel for="txtTitulo" value="Título"/>
-                    <p:inputText id="txtTitulo" value="#{postController.post.titulo}"/>
+                    <p:inputText id="txtTitulo" value="#{postController.post.titulo}" style="width: 900px"/>
                     
                     <p:outputLabel for="txtCuerpo" value="Contenido"/>
-                    <p:inputTextarea id="txtCuerpo" value="#{postController.post.cuerpoReview}"/>
+                    <p:inputTextarea id="txtCuerpo" value="#{postController.post.cuerpoReview}" style="width: 900px"/>
                     
                     <h:column/>
                     <p:commandButton value="Publicar" action="#{postController.register()}"/>
