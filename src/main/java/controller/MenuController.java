@@ -1,6 +1,7 @@
 package controller;
 
 import EJB.MenuFacadeLocal;
+import EJB.RolFacadeLocal;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import model.Menu;
+import model.Rol;
 import model.User;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
@@ -27,6 +29,9 @@ public class MenuController implements Serializable {
     
     @EJB
     private MenuFacadeLocal menuEJB;
+    @EJB
+    private RolFacadeLocal rolEJB;
+    
     private List<Menu> lista;
     private MenuModel modelo;
     
@@ -65,7 +70,14 @@ public class MenuController implements Serializable {
     }
     
     public void accessLevels(){
+        
         User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+        if(us == null){
+            us = new User();
+            Rol rol = rolEJB.findByID(3);
+            us.setIdRol(rol);
+            
+        }
         
         for(Menu m : lista){
             if(m.getTipo().equals("S") && m.getRolMenu().getTipoUsuario().equals(us.getIdRol().getTipoUsuario())){
