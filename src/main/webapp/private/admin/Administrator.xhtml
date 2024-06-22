@@ -47,26 +47,42 @@
                     </p:dataTable>
                 </h:form>
                 <br/>
-                
+                <h:form id="form-user">
+                    <p:growl id="msgs" showDetail="true"/>
+
+                    <p:dataTable id="list_users" value="#{adminController.userList}" var="user" editable="true">
+                        <p:ajax event="rowEdit" listener="#{adminController.editUser}" update=":form-user:msgs"/>
+
+                        <p:column headerText="Username">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{user.username}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{user.username}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>       
+
+                        <p:column headerText="Rol">        
+                            <p:cellEditor>
+                                <f:facet name="output"><p:outputLabel value="#{user.idRol}" title="#{user.idRol.descripcion}"/></f:facet>
+                                <f:facet name="input">
+                                    <h:selectOneMenu style="width:100%">
+                                        <f:selectItems value="#{adminController.rolList}" var="status" itemLabel="#{status.descripcion}"/>
+                                    </h:selectOneMenu>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width:6rem">
+                            <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
             </ui:define>
 
         </ui:composition>
 
     </body>
 </html>
-<!--
-<p:dataTable id="grid" value="{feedController.list}" var="posts">
-    <p:column headerText="Your feed:">
-        <p:panel header="{posts.titulo} - por {posts.usuarioReview.username}">
-            <p:outputLabel value="{posts.fechaReview}"/>
-            <p:outputLabel value="{posts.valoracionReview}"/> 
-        </p:panel>
-    </p:column>
-    <p:column width="100">
-        <h:button value="Ver más" outcome="/private/common/post.xhtml">
-            <f:param name="postId" value="{posts.idReview}" />
-        </h:button>
-
-    </p:column>
-</p:dataTable>
--->

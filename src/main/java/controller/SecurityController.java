@@ -56,6 +56,23 @@ public class SecurityController implements Serializable {
         }
     }
 
+    public boolean isAdmin() {
+        boolean admin = true;
+        try {
+            User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+
+            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+                
+            } else {
+                admin = false;
+            }
+
+        } catch (Exception e) {
+
+        }
+        return admin;
+    }
+
     public String logout() {
         System.out.println("cerrarsesion");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
