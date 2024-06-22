@@ -19,10 +19,12 @@
                         <h:outputText value="Nickname: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.username}"/>
                         <h:outputText value="Creation Date: " />
-                        <h:outputText style="color: lightgreen" value="#{profileController.user.fechaCreacion}"/>
+                        <h:outputText style="color: lightgreen" value="#{profileController.user.fechaCreacion}">
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>
                         <h:outputText value="Last Online: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.ultimaConexion}">
-                            <f:convertDateTime pattern="dd/mm/yyyy"/>
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
                         </h:outputText>
                         <h:outputText value="Community: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.idComunidad.nombreComunidad}"/>

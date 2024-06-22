@@ -13,19 +13,60 @@
             <ui:define name="content">
                 <f:event type="preRenderView" listener="#{securityController.verifyAdmin()}" />      
 
-                <h:form>
-                    <p:dataList id="items">
+                <h:form id="form-item">
+                    <p:growl id="msgs" showDetail="true"/>
 
-                    </p:dataList>
-                </h:form>
-                <h:form>
-                    <p:dataList id="usuarios">
+                    <p:dataTable id="list_items" value="#{adminController.itemList}" var="item" editable="true">
+                        <p:ajax event="rowEdit" listener="#{adminController.editItem}" update=":form-item:msgs"/>
 
-                    </p:dataList>
+                        <p:column headerText="Name">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{item.nombreItem}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{item.nombreItem}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>       
+
+                        <p:column headerText="Description">        
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{item.descriptionItem}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{item.descriptionItem}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width:6rem">
+                            <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                        </p:column>
+                    </p:dataTable>
                 </h:form>
+                <br/>
+                
             </ui:define>
 
         </ui:composition>
 
     </body>
 </html>
+<!--
+<p:dataTable id="grid" value="{feedController.list}" var="posts">
+    <p:column headerText="Your feed:">
+        <p:panel header="{posts.titulo} - por {posts.usuarioReview.username}">
+            <p:outputLabel value="{posts.fechaReview}"/>
+            <p:outputLabel value="{posts.valoracionReview}"/> 
+        </p:panel>
+    </p:column>
+    <p:column width="100">
+        <h:button value="Ver más" outcome="/private/common/post.xhtml">
+            <f:param name="postId" value="{posts.idReview}" />
+        </h:button>
+
+    </p:column>
+</p:dataTable>
+-->
