@@ -32,12 +32,15 @@ public class Menu implements Serializable{
     @Column(name="Url")
     private String urlMenu;
     
+    @Column(name="Tipo")
+    private String tipo;
+    
     @JoinColumn(name="IdRol")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private Rol rolMenu;
     
     @JoinColumn(name="IdMenu_Menu")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private Menu menu_Menu;
 
     public int getIdMenu() {
@@ -79,6 +82,14 @@ public class Menu implements Serializable{
     public void setMenu_Menu(Menu menu_Menu) {
         this.menu_Menu = menu_Menu;
     }
+    
+    public String getTipo(){
+        return this.tipo;
+    }
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+    
 
     @Override
     public int hashCode() {

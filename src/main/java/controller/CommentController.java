@@ -35,6 +35,7 @@ public class CommentController implements Serializable {
 
     private int idUsuario;
     private int idReview;
+    private int valor;
     
     private List<Comment> list;
 
@@ -98,6 +99,14 @@ public class CommentController implements Serializable {
 
     public void setList(List<Comment> list) {
         this.list = list;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
     

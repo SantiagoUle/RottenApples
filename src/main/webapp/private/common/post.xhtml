@@ -36,6 +36,7 @@
                             <br/>
                             <p:outputLabel for="txtComentario" value="Añadir comentario:" style="font-size: 26px; color: #AFAFAF; "/>
                             <br/><br/>
+                            <p:rating stars="10" value="#{commentController.comment.valComentario}"/>
                             <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px" />
                             <br/><br/>
                             <h:column/>                         
@@ -49,8 +50,16 @@
                             <p:dataTable id="grid" value="#{commentController.loadComments(postController.selectedPost)}" var="coms" >
                                 <p:column headerText="Comentarios:" style="font: Times new roman; color: #58A039; font-size: 36px; border-bottom: 5px solid cadetblue">
                                     <p:panel header="#{coms.usuarioComentario.username}">
-                                        <p:outputLabel value="#{coms.cuerpoComentario}"/>
+                                        <p:outputLabel value="#{coms.cuerpoComentario}" styleClass="preformatted"/>
                                     </p:panel>
+                                </p:column>
+                                <p:column style="font: Times new roman; color: #58A039; font-size: 36px; border-bottom: 5px solid cadetblue" width="16%">
+                                    <p:rating stars="10" readonly="true" value="#{coms.valComentario}"/>
+                                    <br/>
+                                    <p:outputLabel value="#{coms.fechaComentario}" style="padding: 12%">
+                                        <f:convertDateTime pattern="EEEE, HH:mm - dd/MM/yyyy"/>
+                                    </p:outputLabel>
+                                    
                                 </p:column>
 
                             </p:dataTable>

@@ -55,7 +55,7 @@ public class RolFacade extends AbstractFacade<Rol> implements RolFacadeLocal {
         List<Rol> rolList = new ArrayList<>();
         
         try {
-            String consulta = "FROM Rol ur WHERE ur.id LIKE ?1";
+            String consulta = "FROM Rol ur WHERE ur.IdRol LIKE ?1";
             Query query = em.createQuery(consulta);
             query.setParameter(1, id);
            
