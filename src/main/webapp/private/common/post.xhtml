@@ -34,11 +34,12 @@
                         <h:form>
                             <br/>
                             <p:outputLabel for="txtComentario" value="Añadir comentario:" style="font-size: 26px; color: #AFAFAF; "/>
-                            <br/>
+                            <br/><br/>
                             <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px"/>
                             <br/><br/>
                             <h:column/>
                             <p:commandButton value="Publicar" action="#{commentController.publish(postController.selectedPost)}"/>
+
                             
                         </h:form>
                     </div>

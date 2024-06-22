@@ -17,6 +17,7 @@ import model.Comment;
 import model.Item;
 import model.Post;
 import model.User;
+import tool.Links;
 
 /**
  *
@@ -37,12 +38,10 @@ public class CommentController implements Serializable {
 
     @PostConstruct
     public void init() {
-
     }
 
     public String publish(Post post){
-        String dir = "/private/common/post.xhtml?faces-redirect=true";
-
+        String dir = "/private/common/feed.xhtml?faces-redirect=true";
         User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         comment.setUsuarioComentario(us);
         comment.setFechaComentario(new Date());
@@ -50,7 +49,7 @@ public class CommentController implements Serializable {
         
         commentEJB.create(comment);
 
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Comentario enviado con éxito"));
+        // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Comentario enviado con éxito"));
         return dir;
     }
     
