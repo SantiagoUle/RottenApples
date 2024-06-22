@@ -35,16 +35,17 @@
                             <br/>
                             <p:outputLabel for="txtComentario" value="Añadir comentario:" style="font-size: 26px; color: #AFAFAF; "/>
                             <br/><br/>
-                            <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px"/>
+                            <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px" />
                             <br/><br/>
-                            <h:column/>
-                            <p:commandButton value="Publicar" action="#{commentController.publish(postController.selectedPost)}"/>                           
+                            <h:column/>                         
+                            <p:commandButton value="Publicar" actionListener="#{commentController.publish(postController.selectedPost)}" update=":comentarios:grid"/>                           
                         </h:form>
 
                         <br/><br/>
 
-                        <h:form>
-                            <p:dataTable id="grid" value="#{commentController.list}" var="coms">
+                        <h:form id="comentarios">
+                            
+                            <p:dataTable id="grid" value="#{commentController.loadComments(postController.selectedPost)}" var="coms" >
                                 <p:column headerText="Comentarios:" style="font: Times new roman; color: #58A039; font-size: 36px; border-bottom: 5px solid cadetblue">
                                     <p:panel header="#{coms.usuarioComentario.username}">
                                         <p:outputLabel value="#{coms.cuerpoComentario}"/>

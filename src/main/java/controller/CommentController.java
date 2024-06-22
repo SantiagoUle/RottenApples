@@ -40,20 +40,29 @@ public class CommentController implements Serializable {
 
     @PostConstruct
     public void init() {
-        list = commentEJB.findAll();
+        
     }
-
-    public String publish(Post post){
-        String dir = "/private/common/feed.xhtml?faces-redirect=true";
+    
+    public List<Comment> loadComments(Post post){
+        return commentEJB.findByPost(post);
+    }
+    public void publish(Post post){
+        //String dir = "/private/common/feed.xhtml?faces-redirect=true";
+        String dir = Links.POST + "?postId=";
+        dir += post.getIdReview();
         User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         comment.setUsuarioComentario(us);
         comment.setFechaComentario(new Date());
         comment.setReviewComentario(post);
         
         commentEJB.create(comment);
-
+        try{
+            FacesContext.getCurrentInstance().getExternalContext().redirect(dir);
+        }catch(Exception e){
+            
+        }
         // FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Comentario enviado con éxito"));
-        return dir;
+        //return dir;
     }
     
     
