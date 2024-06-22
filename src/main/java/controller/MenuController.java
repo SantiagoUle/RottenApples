@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.Menu;
 import model.Rol;
@@ -24,7 +25,7 @@ import org.primefaces.model.menu.MenuModel;
  * @author Cesar
  */
 @Named
-@SessionScoped
+@ViewScoped
 public class MenuController implements Serializable {
     
     @EJB
@@ -74,7 +75,7 @@ public class MenuController implements Serializable {
         User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         if(us == null){
             us = new User();
-            Rol rol = rolEJB.findByID(3);
+            Rol rol = rolEJB.find(3);
             us.setIdRol(rol);
             
         }
