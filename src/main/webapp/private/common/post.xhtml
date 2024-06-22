@@ -38,10 +38,22 @@
                             <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px"/>
                             <br/><br/>
                             <h:column/>
-                            <p:commandButton value="Publicar" action="#{commentController.publish(postController.selectedPost)}"/>
-
-                            
+                            <p:commandButton value="Publicar" action="#{commentController.publish(postController.selectedPost)}"/>                           
                         </h:form>
+
+                        <br/><br/>
+
+                        <h:form>
+                            <p:dataTable id="grid" value="#{commentController.list}" var="coms">
+                                <p:column headerText="Comentarios:" style="font: Times new roman; color: #58A039; font-size: 36px; border-bottom: 5px solid cadetblue">
+                                    <p:panel header="#{coms.usuarioComentario.username}">
+                                        <p:outputLabel value="#{coms.cuerpoComentario}"/>
+                                    </p:panel>
+                                </p:column>
+
+                            </p:dataTable>
+                        </h:form>
+
                     </div>
 
                 </div>

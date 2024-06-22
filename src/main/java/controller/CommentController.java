@@ -35,9 +35,12 @@ public class CommentController implements Serializable {
 
     private int idUsuario;
     private int idReview;
+    
+    private List<Comment> list;
 
     @PostConstruct
     public void init() {
+        list = commentEJB.findAll();
     }
 
     public String publish(Post post){
@@ -78,6 +81,14 @@ public class CommentController implements Serializable {
 
     public void setComment(Comment comment) {
         this.comment = comment;
+    }
+
+    public List<Comment> getList() {
+        return list;
+    }
+
+    public void setList(List<Comment> list) {
+        this.list = list;
     }
 
     
