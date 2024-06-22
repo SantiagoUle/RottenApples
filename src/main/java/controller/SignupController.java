@@ -10,6 +10,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.User;
 import EJB.UserFacadeLocal;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import model.Rol;
 import tool.Links;
 
@@ -39,13 +41,18 @@ public class SignupController implements Serializable{
     public String insertarUser(){
         
         try{
-            user.setFechaCreacion(new Date());
-            
-            Rol role = rolEJB.find(2);
-            
-            user.setIdRol(role);//get rol
-            //System.out.println("antes de la creacion");
-            userEJB.create(user);
+            if (userEJB.checkExistence(user)){
+                user.setFechaCreacion(new Date());
+
+                Rol role = rolEJB.find(2);
+
+                user.setIdRol(role);//get rol
+                //System.out.println("antes de la creacion");
+                userEJB.create(user);
+            }else{
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "User not available", "User is already registered"));
+                
+            }
         }catch(Exception e){
             System.out.println("ERROR al insertar user/n" +e.getMessage());
         }

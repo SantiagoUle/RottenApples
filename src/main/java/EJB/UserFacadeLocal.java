@@ -33,4 +33,5 @@ public interface UserFacadeLocal {
     
     User verifyUser(User us);
     
+    boolean checkExistence(User us);
 }
