@@ -1,10 +1,12 @@
 package controller;
 
 import EJB.ItemFacadeLocal;
+import EJB.UserFacadeLocal;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -18,10 +20,11 @@ import model.User;
  */
 @Named
 @ViewScoped
+//@SessionScoped
 public class ProfileController implements Serializable{
 
-    //@EJB
-    //private ItemFacadeLocal itemEJB;
+    @EJB
+    private UserFacadeLocal userEJB;
 
     @Inject
     private User user;
@@ -29,6 +32,9 @@ public class ProfileController implements Serializable{
     @PostConstruct//es lo primero que se ejecuta de todo
     public void init(){
         user =  (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+        User u = userEJB.verifyUser(user);
+        user = u;
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("User", user);
     }
     
 
