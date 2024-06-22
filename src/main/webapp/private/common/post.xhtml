@@ -15,8 +15,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
+    <ui:composition template="./../../WEB-INF/template/template.xhtml">
         <ui:define name="content">
+            <f:event type="preRenderView" listener="#{securityController.verifySesion()}" />    
             <Body>
                 <p:messages showDetail="true" showSummary="true"/>
                 <p:autoUpdate/>
@@ -44,7 +45,7 @@
                         <br/><br/>
 
                         <h:form id="comentarios">
-                            
+
                             <p:dataTable id="grid" value="#{commentController.loadComments(postController.selectedPost)}" var="coms" >
                                 <p:column headerText="Comentarios:" style="font: Times new roman; color: #58A039; font-size: 36px; border-bottom: 5px solid cadetblue">
                                     <p:panel header="#{coms.usuarioComentario.username}">

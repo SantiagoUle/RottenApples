@@ -3,13 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
-        <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
+        <ui:composition template="./../../WEB-INF/template/template.xhtml">
 
             <ui:define name="content">
+                <f:event type="preRenderView" listener="#{securityController.verifySesion()}" />    
                 <h1>Profile Page</h1>
                 <h:panelGrid columns="2">
                     <h:graphicImage value="https://cdn.pixabay.com/photo/2016/07/17/01/26/apple-1523069_1280.png" width="150px" height="150px" class="profile-picture"/>
@@ -19,7 +21,9 @@
                         <h:outputText value="Creation Date: " />
                         <h:outputText style="color: lightgreen" value="#{profileController.user.fechaCreacion}"/>
                         <h:outputText value="Last Online: "/>
-                        <h:outputText style="color: lightgreen" value="#{profileController.user.ultimaConexion}"/>
+                        <h:outputText style="color: lightgreen" value="#{profileController.user.ultimaConexion}">
+                            <f:convertDateTime pattern="dd/mm/yyyy"/>
+                        </h:outputText>
                         <h:outputText value="Community: "/>
                         <h:outputText style="color: lightgreen" value="#{profileController.user.idComunidad.nombreComunidad}"/>
                     </h:panelGrid>

@@ -8,10 +8,10 @@
 
     <body>
 
-        <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
+        <ui:composition template="./../../WEB-INF/template/template.xhtml">
 
             <ui:define name="content">
-
+                <f:event type="preRenderView" listener="#{securityController.verifySesion()}" />    
                 <h:form>
                     <p:dataTable id="grid" value="#{feedController.list}" var="posts">
                         <p:column headerText="Your feed:">
