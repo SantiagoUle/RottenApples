@@ -11,6 +11,7 @@ import javax.inject.Named;
 import model.User;
 import EJB.UserFacadeLocal;
 import model.Rol;
+import tool.Links;
 
 /**
  *
@@ -35,7 +36,7 @@ public class SignupController implements Serializable{
         user = new User();
     }
     
-    public void insertarUser(){
+    public String insertarUser(){
         
         try{
             user.setFechaCreacion(new Date());
@@ -48,6 +49,7 @@ public class SignupController implements Serializable{
         }catch(Exception e){
             System.out.println("ERROR al insertar user/n" +e.getMessage());
         }
+        return Links.LOGIN;
     }
 
     public String getHideNoSelectOption() {

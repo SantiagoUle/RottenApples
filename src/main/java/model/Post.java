@@ -34,9 +34,6 @@ public class Post implements Serializable{
     @Column(name = "Cuerpo")
     private String cuerpoReview;
 
-    @Column(name = "Valoracion")
-    private boolean valoracionReview;
-
     @Column(name = "Fecha")
     private Date fechaReview;
 
@@ -72,14 +69,6 @@ public class Post implements Serializable{
         this.cuerpoReview = cuerpoReview;
     }
 
-    public boolean isValoracionReview() {
-        return valoracionReview;
-    }
-
-    public void setValoracionReview(boolean valoracionReview) {
-        this.valoracionReview = valoracionReview;
-    }
-
     public Date getFechaReview() {
         return fechaReview;
     }
@@ -107,13 +96,12 @@ public class Post implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.idReview;
-        hash = 59 * hash + Objects.hashCode(this.titulo);
-        hash = 59 * hash + Objects.hashCode(this.cuerpoReview);
-        hash = 59 * hash + (this.valoracionReview ? 1 : 0);
-        hash = 59 * hash + Objects.hashCode(this.fechaReview);
-        hash = 59 * hash + Objects.hashCode(this.usuarioReview);
-        hash = 59 * hash + Objects.hashCode(this.itemReview);
+        hash = 83 * hash + this.idReview;
+        hash = 83 * hash + Objects.hashCode(this.titulo);
+        hash = 83 * hash + Objects.hashCode(this.cuerpoReview);
+        hash = 83 * hash + Objects.hashCode(this.fechaReview);
+        hash = 83 * hash + Objects.hashCode(this.usuarioReview);
+        hash = 83 * hash + Objects.hashCode(this.itemReview);
         return hash;
     }
 
@@ -130,9 +118,6 @@ public class Post implements Serializable{
         }
         final Post other = (Post) obj;
         if (this.idReview != other.idReview) {
-            return false;
-        }
-        if (this.valoracionReview != other.valoracionReview) {
             return false;
         }
         if (!Objects.equals(this.titulo, other.titulo)) {
@@ -152,6 +137,5 @@ public class Post implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

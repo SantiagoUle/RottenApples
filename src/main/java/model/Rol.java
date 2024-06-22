@@ -52,6 +52,15 @@ public class Rol implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + this.IdRol;
+        hash = 71 * hash + Objects.hashCode(this.tipoUsuario);
+        hash = 71 * hash + Objects.hashCode(this.descripcion);
+        return hash;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -66,7 +75,7 @@ public class Rol implements Serializable {
         if (this.IdRol != other.IdRol) {
             return false;
         }
-        if (this.tipoUsuario != other.tipoUsuario) {
+        if (!Objects.equals(this.tipoUsuario, other.tipoUsuario)) {
             return false;
         }
         if (!Objects.equals(this.descripcion, other.descripcion)) {
@@ -75,14 +84,7 @@ public class Rol implements Serializable {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + this.IdRol;
-        hash = 79 * hash + Objects.hashCode(this.tipoUsuario);
-        hash = 79 * hash + Objects.hashCode(this.descripcion);
-        return hash;
-    }
+
     
     
     

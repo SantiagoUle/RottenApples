@@ -32,7 +32,7 @@ public class SecurityController implements Serializable {
         try {
             User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
 
-            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+            if (us == null || !us.getIdRol().getTipoUsuario().equals("A")) {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/login.xhtml");
             }
 
@@ -61,7 +61,7 @@ public class SecurityController implements Serializable {
         try {
             User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
 
-            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+            if (us == null || !us.getIdRol().getTipoUsuario().equals("A")) {
                 
             } else {
                 admin = false;
