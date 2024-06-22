@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import model.Menu;
@@ -35,6 +35,7 @@ public class MenuController implements Serializable {
     public void init() {
         this.menuList();
         modelo = new DefaultMenuModel();
+        this.accessLevels();
     }
     
     public void menuList(){
@@ -64,48 +65,33 @@ public class MenuController implements Serializable {
     }
     
     public void accessLevels(){
+        User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        
         for(Menu m : lista){
-            if(m.getTipo().equals("S")){
+            if(m.getTipo().equals("S") && m.getTipo().equals(us)){
                 DefaultSubMenu firstSubmenu = new DefaultSubMenu().builder().label(m.getNombreMenu()).build();
                 for(Menu i : lista){
                     Menu submenu = i.getMenu_Menu();
                     if(submenu != null){
                         if(submenu.getIdMenu() == m.getIdMenu()){
                             DefaultMenuItem item = new DefaultMenuItem().builder().value(i.getNombreMenu()).url(i.getUrlMenu()).build();
-                            //firstSubmenu.addElement(item);
+                            item.setUrl(i.getUrlMenu());
+                            firstSubmenu.builder().addElement(item);
                         }
                     }
+                }
+                
+                modelo.getElements().add(firstSubmenu);
+            } else {
+                if(m.getMenu_Menu() == null && m.getTipo().equals(us.getIdRol().getTipoUsuario())){
+                    DefaultMenuItem item = new DefaultMenuItem().builder().value(m.getNombreMenu()).url(m.getUrlMenu()).build();
+                    item.setUrl(m.getUrlMenu());
+                    modelo.getElements().add(item);
                 }
             }
         }
     }
     
-    public void establecerPermisos() {
-        User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
-        
-        for (Menu m : lista) {
-            if (m.getTipo().equals("S") && m.getTipo().equals(us.getIdRol().getTipoUsuario())) {
-                DefaultSubMenu firstSubmenu = new DefaultSubMenu(m.getNombreMenu());
-                for (Menu i : lista) {
-                    Menu submenu = i.getSubmenu();
-                    if (submenu != null) {
-                        if (submenu.getCodigo() == m.getCodigo()) {
-                            DefaultMenuItem item = new DefaultMenuItem(i.getNombre());
-                            item.setUrl(i.getUrl());
-                            firstSubmenu.addElement(item);
-                        }
-                    }
-                }
-                model.addElement(firstSubmenu);
-            } else {
-                if (m.getSubmenu() == null && m.getTipoUsuario().equals(us.getTipo())) {
-                    DefaultMenuItem item = new DefaultMenuItem(m.getNombre());
-                    item.setUrl(m.getUrl());
-                    model.addElement(item);
-                }
-            }
-        }
-    }
     
     
     
