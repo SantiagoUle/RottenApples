@@ -50,8 +50,8 @@ public class SignupController implements Serializable{
                 //System.out.println("antes de la creacion");
                 userEJB.create(user);
             }else{
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "User not available", "User is already registered"));
-                
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, "User not available", "User is already registered");
+                FacesContext.getCurrentInstance().addMessage("growl", message);
             }
         }catch(Exception e){
             System.out.println("ERROR al insertar user/n" +e.getMessage());

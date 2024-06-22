@@ -59,12 +59,12 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
             query.setParameter("param1", us.getUsername());
             listaUsuarios = query.getResultList();
             if (listaUsuarios.isEmpty()) {
-                return false;
+                return true;
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return true;
+        return false;
     }
 
 }

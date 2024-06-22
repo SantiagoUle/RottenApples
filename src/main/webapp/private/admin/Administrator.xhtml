@@ -63,6 +63,17 @@
                                 </f:facet>
                             </p:cellEditor>
                         </p:column>       
+                        
+                        <p:column headerText="Password">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{user.password}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{user.password}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>       
 
                         <p:column headerText="Rol">        
                             <p:cellEditor>
