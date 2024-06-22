@@ -37,6 +37,9 @@ public class PostController implements Serializable {
     private Item item;
 
     private List<Item> categorias;
+    
+    private Post selectedPost; // Post seleccionado
+    private int selectedPostId; // ID del post seleccionado
 
     @PostConstruct
     public void init() {
@@ -58,7 +61,35 @@ public class PostController implements Serializable {
         return dir;
 
     }
+    
+    public void loadPost() {
+            System.out.println("El id NOOOOOOO es null");
+            selectedPost = postEJB.find(selectedPostId);
+    }
+    public void triLoadPost(){
+        selectedPostId = this.getPost().getIdReview();
+    }
 
+    // G&S
+
+    public Post getSelectedPost() {
+        return selectedPost;
+    }
+
+    public void setSelectedPost(Post selectedPost) {
+        this.selectedPost = selectedPost;
+    }
+
+    public int getSelectedPostId() {
+        return selectedPostId;
+    }
+
+    public void setSelectedPostId(int selectedPostId) {
+        this.selectedPostId = selectedPostId;
+    }
+    
+    
+    
     public Post getPost() {
         return post;
     }

@@ -34,13 +34,16 @@ public class FeedController implements Serializable{
     private User user;
     private List<Post> list;
     
+    private int selectedPostId;
+    
     @PostConstruct//es lo primero que se ejecuta de todo
     public void init(){
         user =  (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         list = postFacade.findAll();
     }
     
-    public void showDetails(){
+    public void showDetails(int a){
+        selectedPostId = a;
         try {
             FacesContext.getCurrentInstance().getExternalContext().redirect(Links.POST);
         } catch (IOException ex) {
@@ -48,7 +51,12 @@ public class FeedController implements Serializable{
         }
     }
 
+    public void triLoadPost(int a) {
+        selectedPostId = a;
+    }
+    
     //G&S
+    
 
     public User getUser() {
         return user;
@@ -64,6 +72,14 @@ public class FeedController implements Serializable{
 
     public void setList(List<Post> list) {
         this.list = list;
+    }
+
+    public int getSelectedPostId() {
+        return selectedPostId;
+    }
+
+    public void setSelectedPostId(int selectedPostId) {
+        this.selectedPostId = selectedPostId;
     }
     
     
