@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import model.Comment;
 import model.Item;
 import model.User;
 
@@ -22,6 +23,8 @@ public class ProfileController implements Serializable{
 
     @Inject
     private User user;
+    
+    
     
     @PostConstruct//es lo primero que se ejecuta de todo
     public void init(){

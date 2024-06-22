@@ -1,14 +1,16 @@
 h7 {
     font-family: "Verdana";
-    border-bottom: 5px solid   #2aa2a2; 
+    border-bottom: 5px solid    #c65353
+; 
     font-size: 85px;
-    color:   #2aa2a2;
+    color:    #c65353
+;
     
 }
 h8 {
     font-family: "Times new Roman", fantasy, sans-serif;
     font-size: 24px;
-    color: #ffffff;
+    color: #dddddd;
     text-align: justify;
     text-justify: inter-word;
     

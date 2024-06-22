@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,11 +36,11 @@ public class Comment implements Serializable{
     private Date fechaComentario;
     
     @JoinColumn(name="IdUsuario")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private User usuarioComentario;
     
     @JoinColumn(name="IdReview")
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     private Post reviewComentario;
 
     public int getIdComentario() {

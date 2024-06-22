@@ -18,16 +18,31 @@
     <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
         <ui:define name="content">
             <Body>
+                <p:messages showDetail="true" showSummary="true"/>
+                <p:autoUpdate/>
                 <br/>
                 <h2>Detalles del Post</h2>
                 <div style="margin: 70px" >
                     <h7><h:outputText value="#{postController.selectedPost.titulo}" /></h7>
                     <br/><br/><br/>
                     <h8><h:outputText value="#{postController.selectedPost.cuerpoReview}" styleClass="preformatted"/></h8>
-                    
-                    
-                    
-                    
+
+
+                    <br/><br/><br/><br/>
+
+                    <div align="center" style="border-top: 5px solid #c65353">
+                        <h:form>
+                            <br/>
+                            <p:outputLabel for="txtComentario" value="Añadir comentario:" style="font-size: 26px; color: #AFAFAF; "/>
+                            <br/>
+                            <p:inputTextarea id="txtComentario" value="#{commentController.comment.cuerpoComentario}" style="width: 750px"/>
+                            <br/><br/>
+                            <h:column/>
+                            <p:commandButton value="Publicar" action="#{commentController.publish(postController.selectedPost)}"/>
+                            
+                        </h:form>
+                    </div>
+
                 </div>
             </Body>
         </ui:define>

@@ -63,7 +63,7 @@ public class PostController implements Serializable {
     }
     
     public void loadPost() {
-            System.out.println("El id NOOOOOOO es null");
+            //System.out.println("El id NOOOOOOO es null");
             selectedPost = postEJB.find(selectedPostId);
     }
     public void triLoadPost(){
