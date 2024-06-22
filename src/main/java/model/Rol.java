@@ -22,7 +22,7 @@ public class Rol implements Serializable {
     private int IdRol;
     
     @Column (name="TipoUsuario")
-    private char tipoUsuario;
+    private String tipoUsuario;
     
     @Column(name="Descripcion")
     private String descripcion;
@@ -35,11 +35,11 @@ public class Rol implements Serializable {
         this.IdRol = IdRol;
     }
 
-    public char getTipoUsuario() {
+    public String getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(char tipoUsuario) {
+    public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 
@@ -49,15 +49,6 @@ public class Rol implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + this.IdRol;
-        hash = 19 * hash + this.tipoUsuario;
-        hash = 19 * hash + Objects.hashCode(this.descripcion);
-        return hash;
     }
 
     @Override
@@ -82,6 +73,15 @@ public class Rol implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.IdRol;
+        hash = 79 * hash + Objects.hashCode(this.tipoUsuario);
+        hash = 79 * hash + Objects.hashCode(this.descripcion);
+        return hash;
     }
     
     

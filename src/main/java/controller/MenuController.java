@@ -65,10 +65,10 @@ public class MenuController implements Serializable {
     }
     
     public void accessLevels(){
-        User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
         
         for(Menu m : lista){
-            if(m.getTipo().equals("S") && m.getTipo().equals(us)){
+            if(m.getTipo().equals("S") && m.getRolMenu().getTipoUsuario().equals(us.getIdRol().getTipoUsuario())){
                 DefaultSubMenu firstSubmenu = new DefaultSubMenu().builder().label(m.getNombreMenu()).build();
                 for(Menu i : lista){
                     Menu submenu = i.getMenu_Menu();
@@ -76,14 +76,14 @@ public class MenuController implements Serializable {
                         if(submenu.getIdMenu() == m.getIdMenu()){
                             DefaultMenuItem item = new DefaultMenuItem().builder().value(i.getNombreMenu()).url(i.getUrlMenu()).build();
                             item.setUrl(i.getUrlMenu());
-                            firstSubmenu.builder().addElement(item);
+                            firstSubmenu.getElements().add(item);
                         }
                     }
                 }
                 
                 modelo.getElements().add(firstSubmenu);
             } else {
-                if(m.getMenu_Menu() == null && m.getTipo().equals(us.getIdRol().getTipoUsuario())){
+                if(m.getMenu_Menu() == null && m.getRolMenu().getTipoUsuario().equals(us.getIdRol().getTipoUsuario())){
                     DefaultMenuItem item = new DefaultMenuItem().builder().value(m.getNombreMenu()).url(m.getUrlMenu()).build();
                     item.setUrl(m.getUrlMenu());
                     modelo.getElements().add(item);
