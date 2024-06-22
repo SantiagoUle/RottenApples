@@ -34,9 +34,9 @@
                         <p:commandButton value="Log Out" action="#{securityController.logout()}" style="background-color: #990000" />
                     </h:form>
                 </h:panelGrid>
-                <h:form>
-                    <p:commandButton value="admin" action="/private/admin/administrator.xhtml" disabled="#{securityController.isAdmin()}" style="background-color: #333" />
-                </h:form> 
+                <!--<h:form>
+                    <p:commandButton value="admin" action="/private/admin/administrator.xhtml" disabled="{securityController.isAdmin()}" style="background-color: #333" />
+                </h:form> -->
             </ui:define>
 
         </ui:composition>

@@ -15,7 +15,7 @@
                 <h:form>
                     <p:dataTable id="grid" value="#{feedController.list}" var="posts">
                         <p:column headerText="Your feed:">
-                            <p:panel header="#{posts.titulo} - por #{posts.usuarioReview.username}">
+                            <p:panel header="#{posts.titulo} - by #{posts.usuarioReview.username} - about #{posts.itemReview.nombreItem}">
                                 <p:outputLabel value="#{posts.fechaReview}"/>
                             </p:panel>
                         </p:column>
