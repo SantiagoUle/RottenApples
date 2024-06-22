@@ -1,16 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
         <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
 
             <ui:define name="content">
-                Your feed:
-            </ui:define>
 
+                <h:form>
+                    <p:dataTable id="grid" value="#{feedController.list}" var="posts">
+                        <p:column headerText="Your feed:">
+                            <p:panel header="#{posts.titulo} - por #{posts.usuarioReview.username}">
+                                <p:outputLabel value="#{posts.fechaReview}"/>
+                                <!--<p:outputLabel value="#{posts.valoracionReview}"/> -->
+                            </p:panel>
+                        </p:column>
+                        <p:column width="100">
+                            <h:button value="Ver más" outcome="/private/common/post.xhtml">
+                                <f:param name="postId" value="#{posts.idReview}" />
+                            </h:button>
+
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+
+            </ui:define>
         </ui:composition>
 
     </body>

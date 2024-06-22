@@ -1,0 +1,33 @@
+h7 {
+    font-family: "Verdana";
+    border-bottom: 5px solid    #c65353
+; 
+    font-size: 85px;
+    color:    #c65353
+;
+    
+}
+h8 {
+    font-family: "Times new Roman", fantasy, sans-serif;
+    font-size: 24px;
+    color: #dddddd;
+    text-align: justify;
+    text-justify: inter-word;
+    
+    
+    
+}
+
+h2{
+    font-family: "Times new Roman";
+    border-bottom: 1px solid #AFAFAF; 
+    font-size: 34px;
+    margin: 0px;
+    padding: 0px;
+    color: #AFAFAF;
+}
+
+
+.preformatted{
+    white-space: pre-wrap;
+}

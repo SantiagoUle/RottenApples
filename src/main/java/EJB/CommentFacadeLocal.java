@@ -8,6 +8,7 @@ package EJB;
 import java.util.List;
 import javax.ejb.Local;
 import model.Comment;
+import model.Post;
 
 /**
  *
@@ -29,5 +30,7 @@ public interface CommentFacadeLocal {
     List<Comment> findRange(int[] range);
 
     int count();
+    
+    List<Comment> findByPost (Post post);
     
 }

@@ -9,7 +9,7 @@
     <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
 
         <ui:define name="content">
-            <h1>Create a new Post</h1>
+            <h2>Create a new Post</h2>
             <h:form>
                 <p:messages showDetail="true" showSummary="true"/>
                 <p:autoUpdate/>
@@ -22,13 +22,13 @@
                     </p:selectOneMenu>
                     
                     <p:outputLabel for="txtTitulo" value="Título"/>
-                    <p:inputText id="txtTitulo" value="#{postController.post.titulo}"/>
+                    <p:inputText id="txtTitulo" value="#{postController.post.titulo}" style="width: 900px"/>
                     
                     <p:outputLabel for="txtCuerpo" value="Contenido"/>
-                    <p:inputTextarea id="txtCuerpo" value="#{postController.post.cuerpoReview}"/>
+                    <p:inputTextarea id="txtCuerpo" value="#{postController.post.cuerpoReview}" style="width: 900px"/>
                     
                     <h:column/>
-                    <p:commandButton value="Aversiva" action="#{postController.register()}"/>
+                    <p:commandButton value="Publicar" action="#{postController.register()}"/>
                 </h:panelGrid>
             </h:form>
         </ui:define>
