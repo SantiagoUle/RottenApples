@@ -3,16 +3,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     </head>
 
-    <ui:composition template="./../../WEB-INF/template/template_security.xhtml">
+    <ui:composition template="./../../WEB-INF/template/template.xhtml">
 
         <ui:define name="content">
+            <f:event type="preRenderView" listener="#{securityController.verifySesion()}" />    
             <body>
                 <h:form>
                     <p:dataTable id="grid" value="#{communityController.list}" var="communities" partialUpdate="false">
@@ -25,7 +27,7 @@
                             <p:commandButton update="grid" icon="#{communityController.buttonIcon(communities)}" 
                                              style="#{communityController.buttonBackground(communities)}"
                                              action="#{communityController.fav(communities)}"/>
-                            
+
 
                         </p:column>
                     </p:dataTable>

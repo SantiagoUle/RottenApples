@@ -5,6 +5,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import model.User;
+import tool.Links;
 
 /**
  *
@@ -19,14 +20,60 @@ public class SecurityController implements Serializable {
             User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
 
             if (us == null) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/error.xhtml");
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/login.xhtml");
             }
 
         } catch (Exception e) {
 
         }
     }
-    public String logout(){
+
+    public void verifyAdmin() {
+        try {
+            User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+
+            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./../../public/login.xhtml");
+            }
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void verifyLogout() {
+        try {
+            User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+
+            if (us != null) {
+                //intento de entrar al login ya logueado                
+                //intento de entrar a signup ya logueado
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./../private/users/profileClient.xhtml");
+            }
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    public boolean isAdmin() {
+        boolean admin = true;
+        try {
+            User us = (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("User");
+
+            if (us == null || us.getIdRol().getTipoUsuario() != 'A') {
+                
+            } else {
+                admin = false;
+            }
+
+        } catch (Exception e) {
+
+        }
+        return admin;
+    }
+
+    public String logout() {
         System.out.println("cerrarsesion");
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "/public/index.xhtml";

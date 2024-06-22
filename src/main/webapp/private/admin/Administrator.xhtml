@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/template/template.xhtml">
+
+            <ui:define name="content">
+                <f:event type="preRenderView" listener="#{securityController.verifyAdmin()}" />      
+
+                <h:form id="form-item">
+                    <p:growl id="msgs" showDetail="true"/>
+
+                    <p:dataTable id="list_items" value="#{adminController.itemList}" var="item" editable="true">
+                        <p:ajax event="rowEdit" listener="#{adminController.editItem}" update=":form-item:msgs"/>
+
+                        <p:column headerText="Name">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{item.nombreItem}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{item.nombreItem}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>       
+
+                        <p:column headerText="Description">        
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{item.descriptionItem}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{item.descriptionItem}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width:6rem">
+                            <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+                <br/>
+                <h:form id="form-user">
+                    <p:growl id="msgs" showDetail="true"/>
+
+                    <p:dataTable id="list_users" value="#{adminController.userList}" var="user" editable="true">
+                        <p:ajax event="rowEdit" listener="#{adminController.editUser}" update=":form-user:msgs"/>
+
+                        <p:column headerText="Username">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{user.username}"/>
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{user.username}"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>       
+
+                        <p:column headerText="Rol">        
+                            <p:cellEditor>
+                                <f:facet name="output"><p:outputLabel value="#{user.idRol}" title="#{user.idRol.descripcion}"/></f:facet>
+                                <f:facet name="input">
+                                    <h:selectOneMenu style="width:100%">
+                                        <f:selectItems value="#{adminController.rolList}" var="status" itemLabel="#{status.descripcion}"/>
+                                    </h:selectOneMenu>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width:6rem">
+                            <p:rowEditor editTitle="Edit Row" cancelTitle="Cancel Edit" saveTitle="Save Row"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
