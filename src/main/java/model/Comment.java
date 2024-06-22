@@ -30,7 +30,7 @@ public class Comment implements Serializable{
     private String cuerpoComentario;
     
     @Column(name="Valoracion")
-    private boolean valComentario;
+    private int valComentario;
     
     @Column(name="FechaCreacion")
     private Date fechaComentario;
@@ -58,12 +58,16 @@ public class Comment implements Serializable{
     public void setCuerpoComentario(String cuerpoComentario) {
         this.cuerpoComentario = cuerpoComentario;
     }
-
-    public boolean isValComentario() {
+    /*
+    public int isValComentario() {
         return valComentario;
     }
-
-    public void setValComentario(boolean valComentario) {
+    */
+    public int getValComentario() {
+        return valComentario;
+    }
+    
+    public void setValComentario(int valComentario) {
         this.valComentario = valComentario;
     }
 
@@ -96,7 +100,7 @@ public class Comment implements Serializable{
         int hash = 7;
         hash = 67 * hash + this.idComentario;
         hash = 67 * hash + Objects.hashCode(this.cuerpoComentario);
-        hash = 67 * hash + (this.valComentario ? 1 : 0);
+        hash = 67 * hash + Objects.hashCode(this.valComentario);
         hash = 67 * hash + Objects.hashCode(this.fechaComentario);
         hash = 67 * hash + Objects.hashCode(this.usuarioComentario);
         hash = 67 * hash + Objects.hashCode(this.reviewComentario);
