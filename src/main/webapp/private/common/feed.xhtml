@@ -21,9 +21,9 @@
                             </p:panel>
                         </p:column>
                         <p:column width="100">
-                            <p:commandButton value="Ver más" action="#{feedController.showDetails(posts.idReview)}">
-                               <!-- <f:param name="postId" value="#{posts.idReview}" /> -->
-                            </p:commandButton>
+                            <h:button value="Ver más" outcome="/private/common/post.xhtml">
+                                <f:param name="postId" value="#{posts.idReview}" />
+                            </h:button>
 
                         </p:column>
                     </p:dataTable>

@@ -8,7 +8,7 @@
 
     <f:metadata>
         <f:viewParam name="postId" value="#{postController.selectedPostId}" />
-        <f:viewAction action="#{postController.loadPost()}" />
+        <f:event type="preRenderView" listener="#{postController.loadPost()}"/>
     </f:metadata>
 
     <head>
