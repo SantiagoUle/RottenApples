@@ -5,7 +5,6 @@ import EJB.UserFacadeLocal;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.faces.context.FacesContext;
@@ -14,10 +13,11 @@ import java.util.Date;
 import EJB.UserFacadeLocal;
 import java.util.List;
 import java.util.logging.Logger;
+import javax.enterprise.context.SessionScoped;
 import model.User;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class LoginController implements Serializable {
     private User user;
     

@@ -27,7 +27,7 @@ public class Community implements Serializable{
     private String nombreComunidad;
     
     @Column(name="Descripcion")
-    private String estadoComunidad;
+    private String descripcionComunidad;
 
     public int getIdComunidad() {
         return idComunidad;
@@ -45,12 +45,12 @@ public class Community implements Serializable{
         this.nombreComunidad = nombreComunidad;
     }
 
-    public String getEstadoComunidad() {
-        return estadoComunidad;
+    public String getDescripcionComunidad() {
+        return descripcionComunidad;
     }
 
-    public void setEstadoComunidad(String estadoComunidad) {
-        this.estadoComunidad = estadoComunidad;
+    public void setDescripcionComunidad(String descripcionComunidad) {
+        this.descripcionComunidad = descripcionComunidad;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Community implements Serializable{
         int hash = 7;
         hash = 17 * hash + this.idComunidad;
         hash = 17 * hash + Objects.hashCode(this.nombreComunidad);
-        hash = 17 * hash + Objects.hashCode(this.estadoComunidad);
+        hash = 17 * hash + Objects.hashCode(this.descripcionComunidad);
         return hash;
     }
 
@@ -80,7 +80,7 @@ public class Community implements Serializable{
         if (!Objects.equals(this.nombreComunidad, other.nombreComunidad)) {
             return false;
         }
-        if (!Objects.equals(this.estadoComunidad, other.estadoComunidad)) {
+        if (!Objects.equals(this.descripcionComunidad, other.descripcionComunidad)) {
             return false;
         }
         return true;
