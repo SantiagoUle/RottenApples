@@ -20,10 +20,12 @@
                             </p:panel>
                         </p:column>
                         <p:column width="100">
-                            <h:button value="Ver más" outcome="/private/common/post.xhtml">
+                        <!--<h:button value="Ver más" outcome="/private/common/post.xhtml">
+                                <f:param name="postId" value="{posts.idReview}" />
+                            </h:button>-->
+                            <p:button value="Ver más" outcome="/private/common/post.xhtml">
                                 <f:param name="postId" value="#{posts.idReview}" />
-                            </h:button>
-
+                            </p:button>
                         </p:column>
                     </p:dataTable>
                 </h:form>
